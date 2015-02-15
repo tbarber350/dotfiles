@@ -5,7 +5,7 @@ set nocompatible "ensures vim over vi
 set number
 
 "add line/column count to the bottom of screen
-set ruler 
+set ruler
 
 "syntax on
 syntax enable
@@ -13,13 +13,36 @@ let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
 
 " tabs are four spaces
-set softtabstop=4 
-set shiftwidth=4 
-set tabstop=4 
-set expandtab 
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab
 
-" tabs are two for css
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" Shortcut to rapidly toggle `set list`
+noremap <leader>l :set list!<CR>
+
+" function to strip white space
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" call trailing whitespace function with f5
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
+" remove trailing white space when file is saved
+autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+if has("autocmd")
+    " tabs are two for css
+    autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+endif
 
 " allow hidden buffers easily
 set hidden
@@ -44,7 +67,7 @@ set wildmenu
 imap jj <esc>
 cmap jj <esc>
 
-" status line 
+" status line
 let laststatus=2
 let g:airline_left_sep='>'
 let g:airline_detect_modified=1
