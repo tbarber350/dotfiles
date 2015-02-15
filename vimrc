@@ -27,6 +27,9 @@ set hidden
 " highlight search results
 set hlsearch
 
+" highlight the line the cursor is on
+set cursorline
+
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
