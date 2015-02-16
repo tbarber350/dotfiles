@@ -68,7 +68,7 @@ imap jj <esc>
 cmap jj <esc>
 
 " status line
-let laststatus=2
+set laststatus=2
 let g:airline_left_sep='>'
 let g:airline_detect_modified=1
 
