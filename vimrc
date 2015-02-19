@@ -44,6 +44,9 @@ if has("autocmd")
     autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 endif
 
+" put .swp file in a tmp directory in my home directory
+set dir=~/tmp
+
 " allow hidden buffers easily
 set hidden
 
