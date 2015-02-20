@@ -44,6 +44,9 @@ if has("autocmd")
     autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 endif
 
+" place the cursor on its own line inside braces after a carriage return
+inoremap <C-Return> <CR><CR><C-o>k<Tab>
+
 " put .swp file in a tmp directory in my home directory
 set dir=~/tmp
 
