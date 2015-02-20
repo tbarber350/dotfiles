@@ -42,6 +42,8 @@ autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 if has("autocmd")
     " tabs are two for css
     autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+    autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
 endif
 
 " place the cursor on its own line inside braces after a carriage return
