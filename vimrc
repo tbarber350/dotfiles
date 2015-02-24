@@ -58,6 +58,9 @@ set hidden
 " highlight search results
 set hlsearch
 
+" highlight search as its typed
+set incsearch
+
 " highlight the line the cursor is on
 set cursorline
 
