@@ -37,13 +37,15 @@ endfunction
 " call trailing whitespace function with f5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
-" remove trailing white space when file is saved
-autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 if has("autocmd")
     " tabs are two for css
     autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
     autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
     autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+    " remove trailing white space when file is saved
+    autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+    " treat ejs like html
+    au BufRead,BufNewFile *.ejs setfiletype html
 endif
 
 " place the cursor on its own line inside braces after a carriage return
