@@ -52,7 +52,8 @@ endif
 inoremap <C-Return> <CR><CR><C-o>k<Tab>
 
 " put .swp file in a tmp directory in my home directory
-set dir=~/tmp
+set directory=~/.swptmp
+"set directory=.,$TEMP
 
 " allow hidden buffers easily
 set hidden
@@ -61,10 +62,7 @@ set hidden
 set hlsearch
 
 " highlight search as its typed
-set incsearch
-
-" highlight the line the cursor is on
-set cursorline
+set incsearch 
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -117,4 +115,6 @@ if has('gui_running')
   set background=dark
   colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+  " highlight the line the cursor is on
+  set cursorline
 endif
