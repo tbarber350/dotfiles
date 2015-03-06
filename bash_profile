@@ -54,7 +54,6 @@ function winname {
                       }
                       
 export PATH=/usr/local/bin:$PATH
-export EDITOR='subl -w'
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/share/npm/lib/node_modules/jshint/bin
 
