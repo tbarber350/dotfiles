@@ -12,6 +12,9 @@ syntax enable
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
 
+" keep ctrlP from searching certain dirs and files
+set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
+
 " tabs are four spaces
 set softtabstop=4
 set shiftwidth=4
