@@ -4,7 +4,10 @@ call pathogen#helptags()
 set nocompatible "ensures vim over vi
 set number
 
-"add line/column count to the bottom of screen
+" add toggle for relative line numbers
+nnoremap <silent><leader>n :set relativenumber!<cr>
+
+" add line/column count to the bottom of screen
 set ruler
 
 "syntax on
