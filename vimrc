@@ -52,6 +52,8 @@ if has("autocmd")
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
     au BufRead,BufNewFile *.ejs setfiletype html
+    " trigger emmet
+    au FileType html,css,sass,scss,less imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
 endif
 
 " place the cursor on its own line inside braces after a carriage return
