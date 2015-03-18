@@ -60,6 +60,9 @@ endif
 " place the cursor on its own line inside braces after a carriage return
 inoremap <C-Return> <CR><CR><C-o>k<Tab>
 
+" allow f6 to copy to the system clipboard on a mac
+nnoremap <F6> :%w !pbcopy <CR><CR>
+
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
 "set directory=.,$TEMP
@@ -120,11 +123,13 @@ set cursorline
 filetype on
 filetype plugin on
 filetype indent on
+
+set background=dark
 colorscheme twilight
+
 " For MacVim
 if has('gui_running')
   syntax enable
-  set background=dark
   colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
