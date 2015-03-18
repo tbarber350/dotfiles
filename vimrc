@@ -1,8 +1,9 @@
 execute pathogen#infect()
 call pathogen#helptags()
 
+set t_Co=256
 set nocompatible "ensures vim over vi
-set number
+set number 
 
 " add toggle for relative line numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
@@ -112,6 +113,9 @@ noremap _ ddkP
 " quick source .vimrc
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" highlight the line the cursor is on
+set cursorline
+
 " Set filetype stuff to on
 filetype on
 filetype plugin on
@@ -123,6 +127,4 @@ if has('gui_running')
   set background=dark
   colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-  " highlight the line the cursor is on
-  set cursorline
 endif
