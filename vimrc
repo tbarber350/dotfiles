@@ -64,7 +64,8 @@ if has("autocmd")
 endif
 
 " place the cursor on its own line inside braces after a carriage return
-inoremap <C-Return> <CR><CR><C-o>k<Tab>
+"inoremap <c-cr> <CR><CR><C-o>k<Tab>
+:inoremap  <C- CR> <CR><Esc>O
 
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
