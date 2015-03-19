@@ -5,11 +5,17 @@ set t_Co=256
 set nocompatible "ensures vim over vi
 set number 
 
-" add toggle for relative line numbers
+" add/remove relative line numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
+nnoremap <silent><leader>nn :set relativenumber! number<cr>
 
 " add line/column count to the bottom of screen
 set ruler
+
+" limit line length to 80 columns
+if exists("+colorcolumn")
+    set colorcolumn=81
+endif
 
 "syntax on
 syntax enable
@@ -59,6 +65,9 @@ endif
 
 " place the cursor on its own line inside braces after a carriage return
 inoremap <C-Return> <CR><CR><C-o>k<Tab>
+
+" allow f6 to copy to the system clipboard on a mac
+nnoremap <F6> :%w !pbcopy <CR><CR>
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
@@ -120,12 +129,13 @@ set cursorline
 filetype on
 filetype plugin on
 filetype indent on
-"colorscheme twilight
-colorscheme atom-dark-256
+
+set background=dark
+colorscheme twilight
+
 " For MacVim
 if has('gui_running')
   syntax enable
-  set background=dark
   colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
