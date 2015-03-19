@@ -120,7 +120,8 @@ set cursorline
 filetype on
 filetype plugin on
 filetype indent on
-colorscheme twilight
+"colorscheme twilight
+colorscheme atom-dark-256
 " For MacVim
 if has('gui_running')
   syntax enable
