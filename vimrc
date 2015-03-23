@@ -131,7 +131,7 @@ filetype plugin on
 filetype indent on
 
 set background=dark
-colorscheme twilight
+colorscheme badwolf
 
 " For MacVim
 if has('gui_running')
