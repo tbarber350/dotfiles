@@ -11,6 +11,12 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# read aliases from file
+source $HOME/.aliases
+
+# change directory without using cd
+setopt AUTO_CD
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -46,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git dirhistory osx web-search)
 
 # User configuration
 
@@ -64,6 +70,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"

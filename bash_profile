@@ -2,28 +2,11 @@
 # The orginal version is saved in .bash_profile.pysave
 PATH="/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
-alias m="mvim --remote-silent"
-alias vms="vm --remote-silent"
 
-# work directories
-alias cdn="cd /Volumes/ContentImages/CDNRepository/"
-alias dpcss="cd /Volumes/ContentImages/CDNRepository/css/DP/story"
-alias dpjs="cd /Volumes/ContentImages/CDNRepository/JS/DP/story" 
-alias dpimages="cd /Volumes/ContentImages/CDNRepository/Images/DP/story" 
-alias dp="cd /Volumes/design\ group/20\ Web\ Center/01\ NewWeb/100\ CMS/19_Detail_Page/stories/"
-alias 500="cd /Volumes/melaleuca.net/Design\ Group/500\ Web\ Marketing/"
-alias melahome="cd ~/Documents/projects/melaleuca_com/"
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias back='cd $OLDPWD'
-alias lf="ls -p | '/'"
-alias ll="ls -l"
-alias la="ls -a"
-alias lal="ls -al"
-alias accounts="cat ~/Documents/test_account_ids.txt"
-
+# read aliases from file
+if [ -f ~/.aliases]; then
+    . ~/.aliases
+fi
 
 function parse_git_branch () {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
