@@ -17,6 +17,9 @@ source $HOME/.aliases
 # change directory without using cd
 setopt AUTO_CD
 
+# see command history
+setopt APPEND_HISTORY
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
