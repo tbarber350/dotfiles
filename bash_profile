@@ -57,6 +57,8 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/usr/local/share/npm/lib/node_modules/jshint/bin
 
+export EDITOR='vim'
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
