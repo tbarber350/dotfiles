@@ -1,6 +1,8 @@
 
 alias m="mvim --remote-silent"
 alias vms="vm --remote-silent"
+# macvim in terminal
+alias vim='mvim -v'
 
 # work directories
 alias cdn="cd /Volumes/ContentImages/CDNRepository/"
