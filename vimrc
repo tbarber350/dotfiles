@@ -69,6 +69,9 @@ inoremap <C-Return> <CR>O<Tab>
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
 
+" yank to system clipboard
+set clipboard=unnamed
+
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
 "set directory=.,$TEMP
