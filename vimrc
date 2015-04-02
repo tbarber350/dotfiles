@@ -3,11 +3,10 @@ call pathogen#helptags()
 
 set t_Co=256
 set nocompatible "ensures vim over vi
-set number 
 
-" add/remove relative line numbers
-nnoremap <silent><leader>n :set relativenumber!<cr>
-nnoremap <silent><leader>nn :set relativenumber! number<cr>
+" add relative numbers and current line number
+set relativenumber 
+set number 
 
 " add line/column count to the bottom of screen
 set ruler
