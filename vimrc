@@ -147,6 +147,9 @@ filetype on
 filetype plugin on
 filetype indent on
 
+" load multiple files within vim
+com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
+
 set background=dark
 colorscheme badwolf
 
