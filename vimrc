@@ -130,7 +130,7 @@ map <C-l> <C-w>l
 " move a line down 1 line
 noremap - ddp
 
-" move a line up one line
+" move a line up 1 line
 noremap _ ddkP
 
 " quick edit .vimrc
