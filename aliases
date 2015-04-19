@@ -22,3 +22,12 @@ alias ll="ls -l"
 alias la="ls -a"
 alias lal="ls -al"
 alias accounts="cat ~/Documents/test_account_ids.txt"
+
+# quickly see snippets
+alias sn-html="less ~/dotfiles/vim/bundle/vim-snippets/snippets/html.snippets"
+alias sn-css="less ~/dotfiles/vim/bundle/vim-snippets/snippets/css.snippets"
+alias sn-scss="less ~/dotfiles/vim/bundle/vim-snippets/snippets/scss.snippets"
+alias sn-js="less ~/dotfiles/vim/bundle/vim-snippets/snippets/javascript/javascript.snippets"
+alias sn-jsjq="less ~/dotfiles/vim/bundle/vim-snippets/snippets/javascript/javascript-jquery.snippets"
+alias sn-jsnode="less ~/dotfiles/vim/bundle/vim-snippets/snippets/javascript/javascript.node.snippets"
+
