@@ -54,7 +54,7 @@ setopt APPEND_HISTORY
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dirhistory osx web-search)
+plugins=(git dirhistory osx web-search frontend-search)
 
 # User configuration
 
