@@ -33,6 +33,7 @@ set expandtab
 " Shortcut to rapidly toggle `set list`
 noremap <leader>l :set list!<CR>
 
+
 " function to strip white space
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
@@ -58,6 +59,8 @@ if has("autocmd")
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
     au BufRead,BufNewFile *.ejs setfiletype html
+    " complete dashed words
+    autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
     " trigger emmet
     au FileType html,css,sass,scss,less imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
 endif
