@@ -1,8 +1,54 @@
-execute pathogen#infect()
-call pathogen#helptags()
-
 set t_Co=256
 set nocompatible "ensures vim over vi
+
+" Required Vundle setup
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+
+Plugin 'gmarik/vundle'
+
+Plugin 'rking/ag.vim'
+
+Plugin 'sjl/badwolf'
+
+Plugin 'kien/ctrlp.vim'
+
+Plugin 'Raimondi/delimitMate'
+
+Plugin 'mattn/emmet-vim'
+
+Plugin 'tmhedberg/matchit'
+
+Plugin 'scrooloose/nerdcommenter'
+
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'scrooloose/syntastic'
+
+Plugin 'tomtom/tlib_vim'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+
+Plugin 'bling/vim-airline'
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'digitaltoad/vim-jade'
+
+Plugin 'pangloss/vim-javascript'
+
+Plugin 'jelera/vim-javascript-syntax'
+
+Plugin 'garbas/vim-snipmate'
+
+Plugin 'tpope/vim-surround'
+
+" All plugins must be added before the following line
+
+call vundle#end()
 
 " add relative numbers and current line number
 set relativenumber 
