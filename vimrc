@@ -198,6 +198,12 @@ noremap - ddp
 " move a line up 1 line
 noremap _ ddkP
 
+" create a new line above the cursor
+noremap <Space>k O<Esc>j
+
+" create a new line below the cursor
+noremap <Space>j o<Esc>k
+
 " quick edit .vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
