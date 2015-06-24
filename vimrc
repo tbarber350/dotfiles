@@ -193,16 +193,19 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " move a line down 1 line
-noremap - ddp
+nnoremap - ddp
 
 " move a line up 1 line
-noremap _ ddkP
+nnoremap _ ddkP
 
 " create a new line above the cursor
-noremap <Space>k O<Esc>j
+nnoremap <Space>k O<Esc>j
 
 " create a new line below the cursor
-noremap <Space>j o<Esc>k
+nnoremap <Space>j o<Esc>k
+
+" split line at cursor and move to new line
+nnoremap <Leader>j a<CR><Esc>k$
 
 " quick edit .vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
