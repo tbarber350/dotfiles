@@ -187,10 +187,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 noremap <silent> <Leader>nt	:NERDTreeToggle<CR>
 
 " easier window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 
 " move a line down 1 line
 noremap - ddp
