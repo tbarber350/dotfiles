@@ -46,6 +46,8 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'lambdatoast/elm'
+
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
