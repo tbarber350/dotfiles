@@ -207,6 +207,9 @@ nnoremap <Space>j o<Esc>k
 " split line at cursor and move to new line
 nnoremap <Leader>j a<CR><Esc>k$
 
+" open current window in new tab
+nnoremap <Leader>z :tabedit %<CR>
+
 " quick edit .vimrc
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
