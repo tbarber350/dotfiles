@@ -46,7 +46,7 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'tpope/vim-surround'
 
-Plugin 'lambdatoast/elm'
+Plugin 'lambdatoast/elm.vim'
 
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -65,6 +65,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnippets"]
 let g:UltiSnipsEditSplit="vertical"
 
 " All plugins must be added before the following line
+
 
 call vundle#end()
 
