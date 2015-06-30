@@ -32,3 +32,6 @@ alias sn-jsjq="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript-jque
 alias sn-jsnode="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript.node.snippets"
 
 alias utility="less /Volumes/melaleuca.net/Design\ Group/500\ Web\ Marketing/Design\ and\ Front-end/front-end/global-scss/_utility.scss"
+
+# see directory structures
+alias treeit="tree -I node_modules | less"
