@@ -34,4 +34,4 @@ alias sn-jsnode="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript.no
 alias utility="less /Volumes/melaleuca.net/Design\ Group/500\ Web\ Marketing/Design\ and\ Front-end/front-end/global-scss/_utility.scss"
 
 # see directory structures
-alias treeit="tree -I node_modules | less"
+alias treeit="tree -I node_modules -C | less -R"
