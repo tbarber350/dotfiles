@@ -46,6 +46,26 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'tpope/vim-commentary'
+
+Plugin 'tpope/vim-repeat'
+
+Plugin 'christoomey/vim-sort-motion'
+
+Plugin 'vim-scripts/ReplaceWithRegister'
+
+Plugin 'kana/vim-textobj-user'
+
+Plugin 'kana/vim-textobj-indent'
+
+Plugin 'kana/vim-textobj-line'
+
+Plugin 'kana/vim-textobj-entire'
+
+Plugin 'kana/vim-textobj-function'
+
+Plugin 'thinca/vim-textobj-function-javascript'
+
 Plugin 'lambdatoast/elm.vim'
 
 " Track the engine.
@@ -206,6 +226,9 @@ nnoremap <Space>k O<Esc>j
 
 " create a new line below the cursor
 nnoremap <Space>j o<Esc>k
+
+" create a new line above and below the cursor
+nnoremap <Space>b O<Esc>jo<Esc>k
 
 " split line at cursor and move to new line
 nnoremap <Leader>j a<CR><Esc>k$
