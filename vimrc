@@ -66,6 +66,8 @@ Plugin 'kana/vim-textobj-function'
 
 Plugin 'thinca/vim-textobj-function-javascript'
 
+Plugin 'josuecau/vim-textobj-cssprop'
+
 Plugin 'lambdatoast/elm.vim'
 
 " Track the engine.
