@@ -137,6 +137,9 @@ endfunction
 " call trailing whitespace function with f5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
+" add ; to the end of a line in insert mode
+inoremap <c-e> <esc><S-a>;<esc>
+
 if has("autocmd")
     " tabs are two for css
     autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
