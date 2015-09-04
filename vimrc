@@ -70,6 +70,8 @@ Plugin 'josuecau/vim-textobj-cssprop'
 
 Plugin 'lambdatoast/elm.vim'
 
+Plugin 'christoomey/vim-tmux-navigator'
+
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
