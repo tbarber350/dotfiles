@@ -38,6 +38,8 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'digitaltoad/vim-jade'
 
+Plugin 'unblevable/quick-scope'
+
 Plugin 'pangloss/vim-javascript'
 
 Plugin 'jelera/vim-javascript-syntax'
