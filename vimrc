@@ -161,6 +161,7 @@ endif
 
 " place the cursor on its own line inside braces after a carriage return
 inoremap <C-Return> <CR>O<Tab>
+let delimitMate_expand_cr=1
 
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
