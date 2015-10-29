@@ -89,6 +89,12 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # nvm
-export NVM_DIR="/Users/travis/.nvm"
+if [[ -s /Users/travis ]]; 
+then
+    export NVM_DIR="/Users/travis/.nvm"
+else
+    export NVM_DIR="/Users/us16777/.nvm"
+fi
+
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
