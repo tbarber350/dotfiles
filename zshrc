@@ -92,9 +92,11 @@ export EDITOR='vim'
 if [[ -s /Users/travis ]]; 
 then
     export NVM_DIR="/Users/travis/.nvm"
+    export PATH=/Users/travis/bin:$PATH
 else
     export NVM_DIR="/Users/us16777/.nvm"
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 
