@@ -74,6 +74,8 @@ Plugin 'lambdatoast/elm.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 
+Plugin 'godlygeek/tabular'
+
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
