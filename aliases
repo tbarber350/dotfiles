@@ -10,7 +10,7 @@ alias dpcss="cd /Volumes/ContentImages/CDNRepository/css/DP/story"
 alias dpjs="cd /Volumes/ContentImages/CDNRepository/JS/DP/story" 
 alias dpimages="cd /Volumes/ContentImages/CDNRepository/Images/DP/story" 
 alias dp="cd /Volumes/design\ group/20\ Web\ Center/01\ NewWeb/100\ CMS/19_Detail_Page/stories/"
-alias 500="cd /Volumes/melaleuca.net/Design\ Group/500\ Web\ Marketing/"
+alias 500="cd /Volumes/public/DesignGroup/500\ Web\ Marketing/"
 alias melahome="cd ~/Documents/projects/melaleuca_com/"
 
 alias ..="cd .."
@@ -31,7 +31,7 @@ alias sn-js="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript.snippe
 alias sn-jsjq="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript-jquery.snippets"
 alias sn-jsnode="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript.node.snippets"
 
-alias utility="less /Volumes/L/Design\ Group/500\ Web\ Marketing/Design\ and\ Front-end/front-end/global-scss/_utility.scss"
+alias utility="less /Volumes/public/DesignGroup/500\ Web\ Marketing/Design\ and\ Front-end/front-end/global-scss/_utility.scss"
 
 # see directory structures
 alias treeit="tree -I node_modules -C | less -R"
