@@ -35,3 +35,6 @@ alias utility="less /Volumes/public/DesignGroup/500\ Web\ Marketing/Design\ and\
 
 # see directory structures
 alias treeit="tree -I node_modules -C | less -R"
+
+# see idaho falls weather
+alias if-weather="curl -4 http://wttr.in/Idaho_Falls"
