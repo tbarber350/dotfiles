@@ -230,6 +230,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 " nerd tree remap toggle
 noremap <silent> <Leader>nt	:NERDTreeToggle<CR>
 
+" show hidden
+let NERDTreeShowHidden=1
+
 " easier window navigation
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
