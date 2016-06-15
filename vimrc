@@ -70,7 +70,8 @@ Plugin 'thinca/vim-textobj-function-javascript'
 
 Plugin 'josuecau/vim-textobj-cssprop'
 
-Plugin 'lambdatoast/elm.vim'
+" Plugin 'lambdatoast/elm.vim'
+Plugin 'elmcast/elm-vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -115,6 +116,9 @@ endif
 syntax enable
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
+
+"elm format
+let g:elm_format_autosave = 1
 
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
