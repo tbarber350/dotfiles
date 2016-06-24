@@ -120,6 +120,12 @@ let g:javascript_ignore_javaScriptdoc=1
 "elm format
 let g:elm_format_autosave = 1
 
+"syntastic for elm
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:elm_syntastic_show_warnings = 1
+
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
