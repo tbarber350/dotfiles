@@ -138,6 +138,12 @@ set expandtab
 " Shortcut to rapidly toggle `set list`
 noremap <leader>l :set list!<CR>
 
+" Folding
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
 
 " function to strip white space
 function! <SID>StripTrailingWhitespaces()
