@@ -126,8 +126,8 @@ let g:syntastic_auto_loc_list = 1
 
 let g:elm_syntastic_show_warnings = 1
 
-"ignore angular directives
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+"ignore html
+let g:syntastic_html_checkers=['']
 
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
