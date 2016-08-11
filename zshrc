@@ -95,7 +95,7 @@ then
     export PATH=/Users/travis/bin:$PATH
 else
     export NVM_DIR="/Users/us16777/.nvm"
-    export PATH=/Users/us16777/.local/bin/pandoc:$PATH
+    export PATH=/Users/us16777/.local/bin:$PATH
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
