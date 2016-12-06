@@ -80,7 +80,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'jeetsukumaran/vim-filebeagle'
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -201,6 +201,9 @@ set hlsearch
 
 " highlight search as its typed
 set incsearch 
+
+" search and replace happens as you type
+set inccommand=split
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
