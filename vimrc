@@ -73,6 +73,8 @@ Plugin 'josuecau/vim-textobj-cssprop'
 " Plugin 'lambdatoast/elm.vim'
 Plugin 'elmcast/elm-vim'
 
+Plugin 'raichoo/purescript-vim'
+
 Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'godlygeek/tabular'
