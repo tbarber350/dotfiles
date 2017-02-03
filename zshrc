@@ -89,6 +89,8 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # nvm
+
+export PATH="/usr/local/Cellar/purescript/0.10.5/bin:$PATH"
 if [[ -s /Users/travis ]]; 
 then
     export NVM_DIR="/Users/travis/.nvm"
