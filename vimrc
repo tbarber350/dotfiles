@@ -52,6 +52,8 @@ Plugin 'tpope/vim-commentary'
 
 Plugin 'tpope/vim-repeat'
 
+Plugin 'tpope/vim-unimpaired'
+
 Plugin 'christoomey/vim-sort-motion'
 
 Plugin 'vim-scripts/ReplaceWithRegister'
