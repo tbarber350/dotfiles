@@ -167,7 +167,7 @@ endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 " add ; to the end of a line in insert mode
-inoremap <c-e> <esc><S-a>;<esc>
+inoremap <c-e> <esc><S-a>
 
 if has("autocmd")
     " tabs are two for css
