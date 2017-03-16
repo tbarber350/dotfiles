@@ -36,6 +36,8 @@ Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'tpope/vim-unimpaired'
+
 Plugin 'digitaltoad/vim-jade'
 
 Plugin 'unblevable/quick-scope'
@@ -166,7 +168,7 @@ endfunction
 " call trailing whitespace function with f5
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
-" add ; to the end of a line in insert mode
+" move cursor to the end of the line in insert mode
 inoremap <c-e> <esc><S-a>
 
 if has("autocmd")
@@ -262,21 +264,6 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-
-" move a line down 1 line
-nnoremap - ddp
-
-" move a line up 1 line
-nnoremap _ ddkP
-
-" create a new line above the cursor
-nnoremap <Space>k O<Esc>j
-
-" create a new line below the cursor
-nnoremap <Space>j o<Esc>k
-
-" create a new line above and below the cursor
-nnoremap <Space>b O<Esc>jo<Esc>k
 
 " split line at cursor and move to new line
 nnoremap <Leader>j a<CR><Esc>k$
