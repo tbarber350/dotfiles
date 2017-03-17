@@ -36,8 +36,6 @@ Plugin 'bling/vim-airline'
 
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'tpope/vim-unimpaired'
-
 Plugin 'digitaltoad/vim-jade'
 
 Plugin 'unblevable/quick-scope'
