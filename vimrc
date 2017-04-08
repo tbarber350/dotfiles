@@ -139,9 +139,9 @@ let g:syntastic_html_checkers=['']
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
 " tabs are four spaces
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 set expandtab
 
 " Shortcut to rapidly toggle `set list`
@@ -175,9 +175,9 @@ inoremap <c-e> <esc><S-a>
 
 if has("autocmd")
     " tabs are two for css
-    autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
-    autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+    " autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    " autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+    " autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
     " remove trailing white space when file is saved
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
