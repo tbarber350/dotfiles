@@ -72,7 +72,6 @@ Plugin 'thinca/vim-textobj-function-javascript'
 
 Plugin 'josuecau/vim-textobj-cssprop'
 
-" Plugin 'lambdatoast/elm.vim'
 Plugin 'elmcast/elm-vim'
 
 Plugin 'raichoo/purescript-vim'
@@ -135,10 +134,13 @@ let g:syntastic_always_populate_loc_list = 1
 "ignore html
 let g:syntastic_html_checkers=['']
 
+"use eslint to lint js
+let g:syntastic_javascript_checkers=['eslint']
+
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
-" tabs are four spaces
+" tabs are two spaces
 set softtabstop=2
 set shiftwidth=2
 set tabstop=2
@@ -174,10 +176,6 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 inoremap <c-e> <esc><S-a>
 
 if has("autocmd")
-    " tabs are two for css
-    " autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    " autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
-    " autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
     " remove trailing white space when file is saved
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
@@ -197,7 +195,6 @@ nnoremap <F6> :%w !pbcopy <CR><CR>
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
-"set directory=.,$TEMP
 
 " allow hidden buffers easily
 set hidden
@@ -208,8 +205,10 @@ set hlsearch
 " highlight search as its typed
 set incsearch 
 
-" search and replace happens as you type
-set inccommand=split
+if has("nvim")
+  " search and replace happens as you type
+  set inccommand=split
+endif
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -228,9 +227,6 @@ set autoindent
 
 " make command line completion better
 set wildmenu
-
-imap jj <esc>
-cmap jj <esc>
 
 " status line
 set laststatus=2
@@ -295,7 +291,5 @@ colorscheme badwolf
 
 " For MacVim
 if has('gui_running')
-  syntax enable
-  colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
