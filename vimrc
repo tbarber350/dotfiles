@@ -194,6 +194,7 @@ let delimitMate_expand_cr=1
 
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
+set clipboard=unnamed
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp

@@ -58,7 +58,7 @@ plugins=(git dirhistory osx)
 
 # User configuration
 
-export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/us16777/bin:/usr/local/share/npm/lib/node_modules/jshint/bin"
+export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/us16777/bin:/usr/local/share/npm/lib/node_modules/jshint/bin:/Library/Frameworks/Mono.framework/Versions/5.0.1/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
