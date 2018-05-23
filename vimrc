@@ -194,7 +194,7 @@ let delimitMate_expand_cr=1
 
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
-set clipboard=unnamed
+set clipboard=""
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
@@ -230,8 +230,6 @@ set autoindent
 " make command line completion better
 set wildmenu
 
-imap jj <esc>
-cmap jj <esc>
 
 " status line
 set laststatus=2
