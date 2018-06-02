@@ -138,10 +138,10 @@ let g:syntastic_html_checkers=['']
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
-" tabs are four spaces
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+" tabs are two spaces
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 set expandtab
 
 " Shortcut to rapidly toggle `set list`
@@ -174,10 +174,6 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 inoremap <c-e> <esc><S-a>
 
 if has("autocmd")
-    " tabs are two for css
-    autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-    autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 
-    autocmd FileType sass setlocal shiftwidth=2 tabstop=2 softtabstop=2 
     " remove trailing white space when file is saved
     autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
@@ -209,8 +205,10 @@ set hlsearch
 " highlight search as its typed
 set incsearch 
 
-" search and replace happens as you type
-set inccommand=split
+if has("nvim")
+  " search and replace happens as you type
+  set inccommand=split
+endif
 
 " Press Space to turn off highlighting and clear any message already displayed.
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
