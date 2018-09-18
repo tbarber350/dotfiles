@@ -57,6 +57,10 @@ setopt APPEND_HISTORY
 plugins=(git osx vi-mode history-substring-search)
 
 # User configuration
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/us16777/bin:/usr/local/share/npm/lib/node_modules/jshint/bin:/Library/Frameworks/Mono.framework/Versions/5.0.1/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
