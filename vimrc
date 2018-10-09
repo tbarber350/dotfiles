@@ -72,7 +72,6 @@ Plugin 'thinca/vim-textobj-function-javascript'
 
 Plugin 'josuecau/vim-textobj-cssprop'
 
-" Plugin 'lambdatoast/elm.vim'
 Plugin 'elmcast/elm-vim'
 
 Plugin 'raichoo/purescript-vim'
@@ -136,6 +135,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 "ignore html
 let g:syntastic_html_checkers=['']
 
+"use eslint to lint js
+let g:syntastic_javascript_checkers=['eslint']
+
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
@@ -195,7 +197,6 @@ set clipboard=""
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
-"set directory=.,$TEMP
 
 " allow hidden buffers easily
 set hidden
@@ -293,7 +294,5 @@ colorscheme badwolf
 
 " For MacVim
 if has('gui_running')
-  syntax enable
-  colorscheme codeschool
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
