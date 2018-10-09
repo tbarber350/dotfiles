@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/travis/.vim'
 let g:netrw_dirhist_2='/Users/travis/Documents/projects/bing-points/bin'
 let g:netrw_dirhist_3='/Users/us16777/Documents/projects/melaleuca_com/melaleuca-info-gulp/html'
+let g:netrw_dirhist_4='/Users/us16777/Documents/projects/melaleuca.com/product-store/category/category-page/html/locale'

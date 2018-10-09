@@ -106,4 +106,5 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+if [ -e /Users/us16777/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/us16777/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 # set -o vi
