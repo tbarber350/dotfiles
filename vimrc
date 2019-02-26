@@ -101,10 +101,14 @@ let g:ultisnipssnippetdirectories=["ultisnips", "mySnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" All plugins must be added before the following line
-
-
+" All plugins must be added before the following line 
 call vundle#end()
+
+" configure ctrlp
+let g:ctrlp_working_path_mode = 'c'
+
+" search down into subfolders
+set path+=**
 
 " add relative numbers and current line number
 set relativenumber 

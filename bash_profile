@@ -47,3 +47,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="/Users/travis/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -e /Users/travis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/travis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
