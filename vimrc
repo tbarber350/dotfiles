@@ -104,7 +104,7 @@ let g:UltiSnipsEditSplit="vertical"
 call vundle#end()
 
 " configure ctrlp
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'r'
 
 " search down into subfolders
 set path+=**
