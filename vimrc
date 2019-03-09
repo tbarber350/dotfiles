@@ -26,7 +26,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 Plugin 'tomtom/tlib_vim'
 
@@ -86,6 +86,8 @@ Plugin 'jeetsukumaran/vim-filebeagle'
 
 Plugin 'prettier/vim-prettier'
 
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+
 " Track the engine.
 " Plugin 'SirVer/ultisnips'
 
@@ -102,7 +104,7 @@ let g:ultisnipssnippetdirectories=["ultisnips", "mySnippets"]
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" All plugins must be added before the following line 
+" All plugins must be added before the following line
 call vundle#end()
 
 " configure ctrlp
@@ -112,8 +114,8 @@ let g:ctrlp_working_path_mode = 'r'
 set path+=**
 
 " add relative numbers and current line number
-set relativenumber 
-set number 
+set relativenumber
+set number
 
 " add line/column count to the bottom of screen
 set ruler
@@ -132,17 +134,19 @@ let g:javascript_ignore_javaScriptdoc=1
 let g:elm_format_autosave = 1
 
 "syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
+"use eslint to lint js
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 " let g:syntastic_auto_loc_list = 1
 
 " let g:elm_syntastic_show_warnings = 1
 
 "ignore html
 let g:syntastic_html_checkers=['']
-
-"use eslint to lint js
-let g:syntastic_javascript_checkers=['eslint']
 
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
@@ -211,7 +215,7 @@ set hidden
 set hlsearch
 
 " highlight search as its typed
-set incsearch 
+set incsearch
 
 if has("nvim")
   " search and replace happens as you type
