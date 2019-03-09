@@ -8,7 +8,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/vundle.vim'
 
 Plugin 'rking/ag.vim'
 
@@ -83,6 +83,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'godlygeek/tabular'
 
 Plugin 'jeetsukumaran/vim-filebeagle'
+
+Plugin 'prettier/vim-prettier'
 
 " Track the engine.
 " Plugin 'SirVer/ultisnips'
@@ -300,3 +302,7 @@ colorscheme badwolf
 if has('gui_running')
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
+
+" run prettier before saving
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
