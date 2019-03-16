@@ -42,6 +42,8 @@ Plugin 'unblevable/quick-scope'
 
 Plugin 'pangloss/vim-javascript'
 
+Plugin 'mxw/vim-jsx'
+
 Plugin 'jelera/vim-javascript-syntax'
 
 Plugin 'garbas/vim-snipmate'
