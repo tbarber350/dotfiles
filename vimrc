@@ -309,6 +309,9 @@ if has('gui_running')
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
 
+" let the mouse work
+set mouse=a
+
 " run prettier before saving
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
