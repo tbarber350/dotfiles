@@ -14,8 +14,6 @@ Plugin 'rking/ag.vim'
 
 Plugin 'sjl/badwolf'
 
-Plugin 'kien/ctrlp.vim'
-
 Plugin 'Raimondi/delimitMate'
 
 Plugin 'mattn/emmet-vim'
@@ -108,9 +106,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 " All plugins must be added before the following line
 call vundle#end()
-
-" configure ctrlp
-let g:ctrlp_working_path_mode = 'r'
 
 " search down into subfolders
 set path+=**
@@ -311,6 +306,12 @@ endif
 
 " let the mouse work
 set mouse=a
+
+" use fzf
+set rtp+=/usr/local/opt/fzf
+
+" ctrl p for fzf
+:nnoremap <C-p> :FZF<cr>
 
 " run prettier before saving
 " let g:prettier#autoformat = 0
