@@ -1,111 +1,98 @@
 set t_Co=256
 set nocompatible "ensures vim over vi
 
-" Required Vundle setup
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.vim/bundle'))
+  silent !curl --insecure -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
+call plug#begin('~/.vim/bundle') 
 
-Plugin 'VundleVim/vundle.vim'
+Plug 'rking/ag.vim'
 
-Plugin 'rking/ag.vim'
+Plug 'sjl/badwolf'
 
-Plugin 'sjl/badwolf'
+Plug 'Raimondi/delimitMate'
 
-Plugin 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
 
-Plugin 'mattn/emmet-vim'
+Plug 'tmhedberg/matchit'
 
-Plugin 'tmhedberg/matchit'
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 
-Plugin 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
 
-Plugin 'vim-syntastic/syntastic'
+Plug 'tomtom/tlib_vim'
 
-Plugin 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plug 'bling/vim-airline'
 
-Plugin 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'tpope/vim-fugitive'
+Plug 'digitaltoad/vim-jade'
 
-Plugin 'digitaltoad/vim-jade'
+Plug 'unblevable/quick-scope'
 
-Plugin 'unblevable/quick-scope'
+Plug 'pangloss/vim-javascript'
 
-Plugin 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
-Plugin 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
 
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'garbas/vim-snipmate'
 
-Plugin 'garbas/vim-snipmate'
+Plug 'tpope/vim-surround'
 
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 
-Plugin 'tpope/vim-unimpaired'
+Plug 'christoomey/vim-sort-motion'
 
-Plugin 'christoomey/vim-sort-motion'
+Plug 'vim-scripts/ReplaceWithRegister'
 
-Plugin 'vim-scripts/ReplaceWithRegister'
+Plug 'kana/vim-textobj-user'
 
-Plugin 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
 
-Plugin 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-line'
 
-Plugin 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
 
-Plugin 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-function'
 
-Plugin 'kana/vim-textobj-function'
+Plug 'thinca/vim-textobj-function-javascript'
 
-Plugin 'thinca/vim-textobj-function-javascript'
+Plug 'josuecau/vim-textobj-cssprop'
 
-Plugin 'josuecau/vim-textobj-cssprop'
+Plug 'elmcast/elm-vim'
 
-Plugin 'elmcast/elm-vim'
+Plug 'raichoo/purescript-vim'
 
-Plugin 'raichoo/purescript-vim'
+Plug 'frigoeu/psc-ide-vim'
 
-Plugin 'frigoeu/psc-ide-vim'
+Plug 'christoomey/vim-tmux-navigator'
 
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'godlygeek/tabular'
 
-Plugin 'godlygeek/tabular'
+Plug 'jeetsukumaran/vim-filebeagle'
 
-Plugin 'jeetsukumaran/vim-filebeagle'
+Plug 'prettier/vim-prettier'
 
-Plugin 'prettier/vim-prettier'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
-Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plug '/usr/local/opt/fzf'
 
-" Track the engine.
-" Plugin 'SirVer/ultisnips'
+Plug 'junegunn/fzf.vim'
 
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+call plug#end()
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-let g:ultisnipssnippetdirectories=["ultisnips", "mySnippets"]
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" All plugins must be added before the following line
-call vundle#end()
 
 " search down into subfolders
 set path+=**
@@ -122,8 +109,6 @@ if exists("+colorcolumn")
     set colorcolumn=81
 endif
 
-"syntax on
-syntax enable
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
 
@@ -289,8 +274,6 @@ nnoremap <Leader>z :tabedit %<CR>
 set cursorline
 
 " Set filetype stuff to on
-filetype on
-filetype plugin on
 filetype indent on
 
 " load multiple files within vim
@@ -308,10 +291,10 @@ endif
 set mouse=a
 
 " use fzf
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 
 " ctrl p for fzf
-:nnoremap <C-p> :FZF<cr>
+:nnoremap <C-p> :Files<cr>
 
 " run prettier before saving
 " let g:prettier#autoformat = 0
