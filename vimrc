@@ -23,7 +23,7 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 Plug 'tomtom/tlib_vim'
 
@@ -85,8 +85,6 @@ Plug 'jeetsukumaran/vim-filebeagle'
 
 Plug 'prettier/vim-prettier'
 
-Plug 'mtscout6/syntastic-local-eslint.vim'
-
 Plug '/usr/local/opt/fzf'
 
 Plug 'junegunn/fzf.vim'
@@ -115,17 +113,6 @@ let g:javascript_ignore_javaScriptdoc=1
 "elm format
 let g:elm_format_autosave = 1
 
-"syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-"use eslint to lint js
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
-" let g:syntastic_auto_loc_list = 1
-
-" let g:elm_syntastic_show_warnings = 1
 
 "ignore html
 let g:syntastic_html_checkers=['']
