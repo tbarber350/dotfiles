@@ -38,3 +38,12 @@ alias treeit="tree -I node_modules -Ca | less -R"
 
 # see idaho falls weather
 alias if-weather="curl -4 http://wttr.in/Idaho_Falls"
+
+
+# run gulp commands for project
+alias gwatch='gulp watch --path `find . -type d | rg node_modules -v | fzf`'
+alias gstyles='gulp styles --path `find . -type d | rg node_modules -v | fzf`'
+alias gscripts='gulp scripts --path `find . -type d | rg node_modules -v | fzf`'
+
+
+alias fcd='cd `find . -type d | rg node_modules -v | fzf`'
