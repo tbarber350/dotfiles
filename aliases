@@ -47,3 +47,4 @@ alias gscripts='gulp scripts --path `find . -type d | rg node_modules -v | fzf`'
 
 
 alias fcd='cd `find . -type d | rg node_modules -v | fzf`'
+alias mcd='cd `find ~/Documents/projects/melaleuca.com -type d | rg node_modules -v | fzf`'
