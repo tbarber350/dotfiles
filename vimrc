@@ -89,6 +89,8 @@ Plug '/usr/local/opt/fzf'
 
 Plug 'junegunn/fzf.vim'
 
+Plug 'wellle/tmux-complete.vim'
+
 call plug#end()
 
 
