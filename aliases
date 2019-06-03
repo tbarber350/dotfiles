@@ -48,3 +48,6 @@ alias gscripts='gulp scripts --path `find . -type d | rg node_modules -v | fzf`'
 
 alias fcd='cd `find . -type d | rg node_modules -v | fzf`'
 alias mcd='cd `find ~/Documents/projects/melaleuca.com -type d | rg node_modules -v | fzf`'
+
+# create weekly ops notes document
+alias createNotes="echo  'morning notes:\n=========\n\nworking on currently\n-------\n\n\nTO DO:\n-------\n\n'  $(date '+%Y%m%d').txt && nvim $(date '+%Y%m%d').txt"

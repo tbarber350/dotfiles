@@ -288,3 +288,6 @@ set mouse=a
 " run prettier before saving
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+
+" which linter is running
+let g:ale_echo_msg_format = '%linter% says %s'
