@@ -289,5 +289,9 @@ set mouse=a
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 
-" which linter is running
+" which linter is running 
 let g:ale_echo_msg_format = '%linter% says %s'
+let g:ale_linters = {'javascript': ['eslint']}
+
+" open word documents
+autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
