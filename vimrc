@@ -291,7 +291,12 @@ set mouse=a
 
 " which linter is running 
 let g:ale_echo_msg_format = '%linter% says %s'
+
 let g:ale_linters = {'javascript': ['eslint']}
+
+" jump to problems found by ale
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
