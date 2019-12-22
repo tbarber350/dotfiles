@@ -91,6 +91,10 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'wellle/tmux-complete.vim'
 
+Plug 'mustache/vim-mustache-handlebars'
+
+Plug 'psliwka/vim-smoothie'
+
 call plug#end()
 
 
@@ -165,7 +169,7 @@ if has("autocmd")
     " complete dashed words
     autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
     " trigger emmet
-    au FileType html,css,sass,scss,less imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
+    au FileType html,css,sass,scss,less,mustache imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
 endif
 
 " place the cursor on its own line inside braces after a carriage return
