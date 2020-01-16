@@ -112,3 +112,5 @@ if [ -e /Users/us16777/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/us1677
 # set -o vi
 
 eval $(thefuck --alias)
+
+export PATH=$PATH:$HOME/bin

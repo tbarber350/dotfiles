@@ -95,6 +95,8 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'psliwka/vim-smoothie'
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 call plug#end()
 
 

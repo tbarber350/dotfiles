@@ -51,3 +51,8 @@ alias mcd='cd `find ~/Documents/projects/melaleuca.com -type d | rg node_modules
 
 # create weekly ops notes document
 alias createNotes="echo  'ops meeting notes:\n=========\n\nworking on currently\n-------\n\n\n\nTO DO:\n-------\n\n' > $(date '+%Y%m%d').txt && nvim $(date '+%Y%m%d').txt"
+
+#git aliases
+# from csswizardry.com
+alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias grecap="git log --all --format=medium --no-merges --author=tbarber@melaleuca.com"
