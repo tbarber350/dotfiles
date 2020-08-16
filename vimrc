@@ -95,7 +95,13 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'psliwka/vim-smoothie'
 
+Plug 'Yggdroot/indentLine'
+
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -171,7 +177,7 @@ if has("autocmd")
     " complete dashed words
     autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
     " trigger emmet
-    au FileType html,css,sass,scss,less,mustache imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
+    au FileType html,css,sass,scss,less,mustache,vue imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
 endif
 
 " place the cursor on its own line inside braces after a carriage return
@@ -304,5 +310,30 @@ let g:ale_linters = {'javascript': ['eslint']}
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
+
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
+
+" added for vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+function! VimwikiLinkHandler(link)
+  " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+  "   1) [[vfile:~/Code/PythonProject/abc123.py]]
+  "   2) [[vfile:./|Wiki Home]]
+  let link = a:link
+  if link =~# '^vfile:'
+    let link = link[1:]
+  else
+    return 0
+  endif
+  let link_infos = vimwiki#base#resolve_link(link)
+  if link_infos.filename == ''
+    echomsg 'Vimwiki Error: Unable to resolve link!'
+    return 0
+  else
+    exe 'tabnew ' . fnameescape(link_infos.filename)
+    return 1
+  endif
+endfunction

@@ -34,7 +34,7 @@ alias sn-jsnode="less ~/dotfiles/vim/bundle/vim-snippets/UltiSnips/javascript.no
 alias utility="less /Volumes/public/DesignGroup/500\ Web\ Marketing/Design\ and\ Front-end/front-end/global-scss/_utility.scss"
 
 # see directory structures
-alias treeit="tree -I node_modules -Ca | less -R"
+alias treeit="tree -I 'node_modules|.git' -Ca | less -R"
 
 # see idaho falls weather
 alias if-weather="curl -4 http://wttr.in/Idaho_Falls"
