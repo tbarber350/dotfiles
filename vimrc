@@ -13,6 +13,8 @@ Plug 'rking/ag.vim'
 
 Plug 'sjl/badwolf'
 
+Plug 'rakr/vim-one'
+
 Plug 'Raimondi/delimitMate'
 
 Plug 'mattn/emmet-vim'
@@ -280,8 +282,10 @@ filetype indent on
 " load multiple files within vim
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
+" colorscheme badwolf
+colorscheme one
 set background=dark
-colorscheme badwolf
+" set background=light
 
 " For MacVim
 if has('gui_running')
@@ -317,6 +321,7 @@ autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -
 " added for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_url_maxsave=0
 
 function! VimwikiLinkHandler(link)
   " Use Vim to open external files with the 'vfile:' scheme.  E.g.:
