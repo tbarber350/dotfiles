@@ -282,8 +282,8 @@ filetype indent on
 " load multiple files within vim
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
-" colorscheme badwolf
-colorscheme one
+colorscheme badwolf
+" colorscheme one
 set background=dark
 " set background=light
 
@@ -314,6 +314,9 @@ let g:ale_linters = {'javascript': ['eslint']}
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
+" move visually selected lines up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv 
 
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
