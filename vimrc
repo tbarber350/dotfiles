@@ -105,6 +105,12 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'nvim-lua/popup.nvim'
+
+Plug 'nvim-lua/plenary.nvim'
+
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 
@@ -272,6 +278,12 @@ nnoremap <Leader>z :tabedit %<CR>
 
 " quick source .vimrc
 :nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " highlight the line the cursor is on
 set cursorline
