@@ -13,6 +13,10 @@ Plug 'rking/ag.vim'
 
 Plug 'sjl/badwolf'
 
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'hrsh7th/nvim-compe'
+
 Plug 'rakr/vim-one'
 
 Plug 'Raimondi/delimitMate'
@@ -25,8 +29,6 @@ Plug 'scrooloose/nerdcommenter'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'w0rp/ale'
-
 Plug 'tomtom/tlib_vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -35,15 +37,7 @@ Plug 'bling/vim-airline'
 
 Plug 'tpope/vim-fugitive'
 
-Plug 'digitaltoad/vim-jade'
-
 Plug 'unblevable/quick-scope'
-
-Plug 'pangloss/vim-javascript'
-
-Plug 'mxw/vim-jsx'
-
-Plug 'jelera/vim-javascript-syntax'
 
 Plug 'garbas/vim-snipmate'
 
@@ -73,17 +67,9 @@ Plug 'thinca/vim-textobj-function-javascript'
 
 Plug 'josuecau/vim-textobj-cssprop'
 
-Plug 'elmcast/elm-vim'
-
-Plug 'raichoo/purescript-vim'
-
-Plug 'frigoeu/psc-ide-vim'
-
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'godlygeek/tabular'
-
-Plug 'jeetsukumaran/vim-filebeagle'
 
 Plug 'prettier/vim-prettier'
 
@@ -92,8 +78,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'wellle/tmux-complete.vim'
-
-Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'psliwka/vim-smoothie'
 
@@ -124,21 +108,6 @@ set number
 " add line/column count to the bottom of screen
 set ruler
 
-" limit line length to 80 columns
-if exists("+colorcolumn")
-    set colorcolumn=81
-endif
-
-let g:javascript_enable_domhtmlcss=1
-let g:javascript_ignore_javaScriptdoc=1
-
-"elm format
-let g:elm_format_autosave = 1
-
-
-"ignore html
-let g:syntastic_html_checkers=['']
-
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
@@ -148,52 +117,6 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 
-" Shortcut to rapidly toggle `set list`
-noremap <leader>l :set list!<CR>
-
-" Folding
-augroup vimrc
-  au BufReadPre * setlocal foldmethod=indent
-  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
-
-" function to strip white space
-function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-" call trailing whitespace function with f5
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
-
-" move cursor to the end of the line in insert mode
-inoremap <c-e> <esc><S-a>
-
-if has("autocmd")
-    " remove trailing white space when file is saved
-    autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
-    " treat ejs like html
-    au BufRead,BufNewFile *.ejs setfiletype html
-    " complete dashed words
-    autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
-    " trigger emmet
-    au FileType html,css,sass,scss,less,mustache,vue imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
-endif
-
-" place the cursor on its own line inside braces after a carriage return
-inoremap <C-Return> <CR>O<Tab>
-let delimitMate_expand_cr=1
-
-" allow f6 to copy to the system clipboard on a mac
-nnoremap <F6> :%w !pbcopy <CR><CR>
 set clipboard=""
 
 " put .swp file in a tmp directory in my home directory
@@ -208,21 +131,6 @@ set hlsearch
 " highlight search as its typed
 set incsearch
 
-if has("nvim")
-  " search and replace happens as you type
-  set inccommand=split
-endif
-
-" Press Space to turn off highlighting and clear any message already displayed.
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
 " Automatically read a file that has changed on disk
 set autoread
 
@@ -231,35 +139,51 @@ set autoindent
 " make command line completion better
 set wildmenu
 
-
 " status line
 set laststatus=2
-let g:airline_left_sep='>'
-let g:airline_detect_modified=1
 
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
+" highlight the line the cursor is on
+set cursorline
+
+" colorscheme one
+set background=dark
+" set background=light
+
+" let the mouse work
+set mouse=a
+
+set signcolumn=yes
+
+" limit line length to 80 columns
+if exists("+colorcolumn")
+    set colorcolumn=80
 endif
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+
+
+" Shortcut to rapidly toggle `set list`
+noremap <leader>l :set list!<CR>
+
+" call trailing whitespace function with f5
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
+" move cursor to the end of the line in insert mode
+inoremap <c-e> <esc><S-a>
+
+" place the cursor on its own line inside braces after a carriage return
+inoremap <C-Return> <CR>O<Tab>
+let delimitMate_expand_cr=1
+
+" allow f6 to copy to the system clipboard on a mac
+nnoremap <F6> :%w !pbcopy <CR><CR>
+
+" Press Space to turn off highlighting and clear any message already displayed.
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 " nerd tree remap toggle
 noremap <silent> <Leader>nt	:NERDTreeToggle<CR>
-
-" show hidden
-let NERDTreeShowHidden=1
 
 " easier window navigation
 noremap <C-h> <C-w>h
@@ -285,8 +209,102 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" highlight the line the cursor is on
-set cursorline
+" ctrl p for fzf
+:nnoremap <C-p> :Files<cr>
+
+" move visually selected lines up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv 
+
+" LSP config
+nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+
+let g:javascript_enable_domhtmlcss=1
+let g:javascript_ignore_javaScriptdoc=1
+
+"elm format
+let g:elm_format_autosave = 1
+
+"ignore html
+let g:syntastic_html_checkers=['']
+
+" Folding
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
+
+" function to strip white space
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+
+if has("autocmd")
+    " remove trailing white space when file is saved
+    autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+    " treat ejs like html
+    au BufRead,BufNewFile *.ejs setfiletype html
+    " complete dashed words
+    autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
+    " trigger emmet
+    au FileType html,css,sass,scss,less,mustache,vue imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
+endif
+
+
+if has("nvim")
+  " search and replace happens as you type
+  set inccommand=split
+endif
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+
+
+" status line
+let g:airline_left_sep='>'
+let g:airline_detect_modified=1
+
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" show hidden
+let NERDTreeShowHidden=1
 
 " Set filetype stuff to on
 filetype indent on
@@ -295,40 +313,19 @@ filetype indent on
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
 colorscheme badwolf
-" colorscheme one
-set background=dark
-" set background=light
 
 " For MacVim
 if has('gui_running')
   :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
 endif
 
-" let the mouse work
-set mouse=a
 
 " use fzf
 " set rtp+=/usr/local/opt/fzf
 
-" ctrl p for fzf
-:nnoremap <C-p> :Files<cr>
-
 " run prettier before saving
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
-
-" which linter is running 
-let g:ale_echo_msg_format = '%linter% says %s'
-
-let g:ale_linters = {'javascript': ['eslint']}
-
-" jump to problems found by ale
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
-
-" move visually selected lines up and down
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '>-2<CR>gv=gv 
 
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
@@ -357,3 +354,8 @@ function! VimwikiLinkHandler(link)
     return 1
   endif
 endfunction
+
+
+
+
+
