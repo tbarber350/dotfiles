@@ -3,13 +3,16 @@ set nocompatible "ensures vim over vi
 
 call plug#begin(stdpath('data') . '/plugged') 
 
-Plug 'rking/ag.vim'
-
-Plug 'sjl/badwolf'
+" Plug 'sjl/badwolf'
+Plug 'gruvbox-community/gruvbox'
 
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'glepnir/lspsaga.nvim'
+
 Plug 'hrsh7th/nvim-compe'
+
+Plug 'onsails/lspkind-nvim'
 
 Plug 'rakr/vim-one'
 
@@ -30,8 +33,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'bling/vim-airline'
 
 Plug 'tpope/vim-fugitive'
-
-Plug 'unblevable/quick-scope'
 
 Plug 'garbas/vim-snipmate'
 
@@ -73,8 +74,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'wellle/tmux-complete.vim'
 
-Plug 'psliwka/vim-smoothie'
-
 Plug 'Yggdroot/indentLine'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -88,6 +87,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'nvim-treesitter/playground'
+
+Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
 
@@ -112,6 +117,17 @@ set tabstop=2
 set expandtab
 
 set clipboard=""
+
+" colorscheme
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+colorscheme gruvbox
+set background=dark
+" set background=light
 
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
@@ -138,10 +154,6 @@ set laststatus=2
 
 " highlight the line the cursor is on
 set cursorline
-
-" colorscheme one
-set background=dark
-" set background=light
 
 " let the mouse work
 set mouse=a
@@ -211,17 +223,28 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv 
 
 " LSP config
-nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+" nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <leader>gD <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <leader>gr <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <leader>K <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+" nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 inoremap <C-c> <esc>
 
+" show hover doc
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+
+" compe mappings
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
@@ -230,7 +253,7 @@ let g:javascript_ignore_javaScriptdoc=1
 let g:elm_format_autosave = 1
 
 "ignore html
-let g:syntastic_html_checkers=['']
+" let g:syntastic_html_checkers=['']
 
 " Folding
 augroup vimrc
@@ -265,10 +288,8 @@ if has("autocmd")
 endif
 
 
-if has("nvim")
-  " search and replace happens as you type
-  set inccommand=split
-endif
+" search and replace happens as you type
+set inccommand=split
 
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
@@ -308,13 +329,6 @@ filetype indent on
 " load multiple files within vim
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
-colorscheme badwolf
-
-" For MacVim
-if has('gui_running')
-  :set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-endif
-
 
 " use fzf
 " set rtp+=/usr/local/opt/fzf
@@ -352,6 +366,4 @@ function! VimwikiLinkHandler(link)
 endfunction
 
 
-
-
-
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
