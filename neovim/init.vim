@@ -3,7 +3,6 @@ set nocompatible "ensures vim over vi
 
 call plug#begin(stdpath('data') . '/plugged') 
 
-" Plug 'sjl/badwolf'
 Plug 'gruvbox-community/gruvbox'
 
 Plug 'neovim/nvim-lspconfig'
@@ -30,7 +29,7 @@ Plug 'tomtom/tlib_vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 
-Plug 'bling/vim-airline'
+Plug 'hoob3rt/lualine.nvim'
 
 Plug 'tpope/vim-fugitive'
 
@@ -296,29 +295,6 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-
-
-" status line
-let g:airline_left_sep='>'
-let g:airline_detect_modified=1
-
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 
 " show hidden
 let NERDTreeShowHidden=1
