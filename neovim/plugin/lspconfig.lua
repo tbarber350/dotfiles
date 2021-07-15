@@ -106,6 +106,11 @@ nvim_lsp.vuels.setup{
   filetype = {'vue'}
 }
 
+-- npm install -g @angular/language-server
+require'lspconfig'.angularls.setup{
+  on_attach = on_attach
+}
+
 -- npm i -g vscode-langservers-extracted
 require'lspconfig'.cssls.setup {
   on_attach=on_attach,
