@@ -114,3 +114,5 @@ if [ -e /Users/us16777/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/us1677
 eval $(thefuck --alias)
 
 export PATH=$PATH:$HOME/bin
+
+alias luamake=/Users/us16777/lua-language-server/3rd/luamake/luamake
