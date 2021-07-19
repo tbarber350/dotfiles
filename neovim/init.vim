@@ -257,13 +257,6 @@ let g:elm_format_autosave = 1
 "ignore html
 " let g:syntastic_html_checkers=['']
 
-" Folding
-augroup vimrc
-  au BufReadPre * setlocal foldmethod=indent
-  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
-
 " function to strip white space
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
