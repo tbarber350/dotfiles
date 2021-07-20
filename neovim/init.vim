@@ -339,4 +339,6 @@ endfunction
 
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
+" run all configuration in lua/travis
 lua require('runall')
