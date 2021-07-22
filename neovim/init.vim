@@ -279,7 +279,7 @@ if has("autocmd")
     " complete dashed words
     autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
     " trigger emmet
-    au FileType html,css,sass,scss,less,mustache,vue imap <expr>jk emmet#expandAbbrIntelligent("\<tab>")
+    au FileType html,css,sass,scss,less,mustache,vue imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")
 endif
 
 
@@ -311,6 +311,9 @@ com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:serverna
 
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
+
+" disable auto comment insertion on new lines
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=0
 
 " added for vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
