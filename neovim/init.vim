@@ -67,10 +67,6 @@ Plug 'godlygeek/tabular'
 
 Plug 'prettier/vim-prettier'
 
-Plug '/usr/local/opt/fzf'
-
-Plug 'junegunn/fzf.vim'
-
 Plug 'wellle/tmux-complete.vim'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -217,9 +213,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fd :lua require('lua.telescope').search_dotfiles()<cr>
 
-" ctrl p for fzf
-:nnoremap <C-p> :Files<cr>
-
 " move visually selected lines up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv 
@@ -302,8 +295,6 @@ filetype indent on
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
 
-" use fzf
-" set rtp+=/usr/local/opt/fzf
 
 " run prettier before saving
 " let g:prettier#autoformat = 0
