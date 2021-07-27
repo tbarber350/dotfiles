@@ -1,10 +1,12 @@
 local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 
 require('telescope').setup{
     defaults = {
         mappings = {
             i = {
                 ['<C-q>'] = actions.send_to_qflist,
+                ['<c-b>'] = function() print(vim.inspect(action_state.get_selected_entry())) end
             },
         },
     }
@@ -22,4 +24,3 @@ M.search_dotfiles = function()
 end
 
 return M
-

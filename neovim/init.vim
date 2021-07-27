@@ -91,6 +91,8 @@ Plug 'nvim-treesitter/playground'
 
 Plug 'hrsh7th/nvim-compe'
 
+Plug 'kyazdani42/nvim-web-devicons'
+
 call plug#end()
 
 
@@ -215,6 +217,7 @@ nnoremap <leader>fr <cmd>Telescope file_browser<cr>
 nnoremap <leader>ft <cmd>Telescope grep_string<cr>
 nnoremap <leader>fd :lua require('lua.telescope').search_dotfiles()<cr>
 nnoremap <leader>fm <cmd>Telescope find_files cwd=~/Documents/projects/melaleuca.com<cr>
+nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 " move visually selected lines up and down
 vnoremap J :m '>+1<CR>gv=gv
