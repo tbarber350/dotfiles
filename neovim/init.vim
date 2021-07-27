@@ -215,8 +215,8 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope file_browser<cr>
 nnoremap <leader>ft <cmd>Telescope grep_string<cr>
-nnoremap <leader>fd :lua require('lua.travis.telescope').search_dotfiles()<cr>
-nnoremap <leader>fc <cmd>lua require('lua.travis.telescope').curr_buff()<cr>
+nnoremap <leader>fd :lua require('travis.telescope').search_dotfiles()<cr>
+nnoremap <leader>fc <cmd>lua require('travis.telescope').curr_buff()<cr>
 nnoremap <leader>fm <cmd>Telescope find_files cwd=~/Documents/projects/melaleuca.com<cr>
 
 " move visually selected lines up and down
