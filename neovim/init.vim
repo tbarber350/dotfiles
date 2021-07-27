@@ -215,10 +215,9 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope file_browser<cr>
 nnoremap <leader>ft <cmd>Telescope grep_string<cr>
-nnoremap <leader>fd :lua require('lua.telescope').search_dotfiles()<cr>
+nnoremap <leader>fd :lua require('lua.travis.telescope').search_dotfiles()<cr>
+nnoremap <leader>fc <cmd>lua require('lua.travis.telescope').curr_buff()<cr>
 nnoremap <leader>fm <cmd>Telescope find_files cwd=~/Documents/projects/melaleuca.com<cr>
-" nnoremap <leader>fc <cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>
-nnoremap <leader>fc <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({sorting_strategy = 'ascending'})<cr>
 
 " move visually selected lines up and down
 vnoremap J :m '>+1<CR>gv=gv
