@@ -93,6 +93,10 @@ Plug 'hrsh7th/nvim-compe'
 
 Plug 'kyazdani42/nvim-web-devicons'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
