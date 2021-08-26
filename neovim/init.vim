@@ -65,11 +65,11 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'godlygeek/tabular'
 
-Plug 'prettier/vim-prettier'
-
 Plug 'wellle/tmux-complete.vim'
 
 Plug 'lukas-reineke/indent-blankline.nvim'
+
+Plug 'sbdchd/neoformat'
 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -114,9 +114,9 @@ set ruler
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
 " tabs are two spaces
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
 set expandtab
 
 set clipboard=""
@@ -244,6 +244,9 @@ nnoremap <silent>K :Lspsaga hover_doc<CR>
 inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 
+" playing with nvim-treesitter
+nnoremap <leader>tt :lua require('travis.travistest').test()<cr>
+
 " compe mappings
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
@@ -305,11 +308,6 @@ filetype indent on
 com! -complete=file -nargs=* Edit silent! exec "!vim --servername " . v:servername . " --remote-silent <args>"
 
 
-
-" run prettier before saving
-" let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
-
 " open word documents
 autocmd BufReadPost *.doc,*.docx,*.rtf,*.odp,*.odt silent %!pandoc "%" -tplain -o /dev/stdout
 
@@ -340,6 +338,10 @@ function! VimwikiLinkHandler(link)
     return 1
   endif
 endfunction
+
+" format using neoformat
+" let g:neoformat_enabled_javascript = ['js-beautify', 'prettier']
+" let g:neoformat_run_all_formatters = 1
 
 
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }

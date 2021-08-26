@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
   end
 end
@@ -96,19 +96,30 @@ nvim_lsp.pyright.setup{
 }
 
 -- npm install -g typescript typescript-language-server
-nvim_lsp.tsserver.setup{ 
-  on_attach=on_attach 
+nvim_lsp.tsserver.setup{
+  on_attach=on_attach
 }
 
 -- npm install -g vls
 nvim_lsp.vuels.setup{
   on_attach=on_attach,
-  filetype = {'vue'}
+  filetypes = {'javascriptvue', 'vue'}
 }
 
 -- npm install -g @angular/language-server
 require'lspconfig'.angularls.setup{
   on_attach = on_attach
+}
+
+-- npm i -g vscode-langservers-extracted
+require'lspconfig'.jsonls.setup {
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+        end
+      }
+    }
 }
 
 -- npm i -g vscode-langservers-extracted
@@ -149,6 +160,7 @@ nvim_lsp.diagnosticls.setup {
       javascriptreact = 'eslint',
       typescript = 'eslint',
       typescriptreact = 'eslint',
+      javascriptvue = 'eslint',
       scss = 'eslint',
       css = 'eslint',
       html = 'eslint'
@@ -168,7 +180,7 @@ nvim_lsp.diagnosticls.setup {
       css = 'prettier',
       javascript = 'eslint_d',
       javascriptreact = 'eslint_d',
-      json = 'prettier',
+      javascriptvue = 'eslint_d',
       scss = 'prettier',
       less = 'prettier',
       typescript = 'eslint_d',
