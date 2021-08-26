@@ -12,6 +12,7 @@ alias dpimages="cd /Volumes/ContentImages/CDNRepository/Images/DP/story"
 alias dp="cd /Volumes/design\ group/20\ Web\ Center/01\ NewWeb/100\ CMS/19_Detail_Page/stories/"
 alias 500="cd /Volumes/public/DesignGroup/500\ Web\ Marketing/"
 alias melahome="cd ~/Documents/projects/melaleuca.com/"
+alias felib= "cd ~/Documents/projects/DEP-Phase1/fe-library/"
 
 alias ..="cd .."
 alias ...="cd ../.."
