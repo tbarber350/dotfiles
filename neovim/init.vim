@@ -19,7 +19,7 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'mattn/emmet-vim'
 
-Plug 'tmhedberg/matchit'
+Plug 'andymass/vim-matchup'
 
 Plug 'scrooloose/nerdcommenter'
 
@@ -245,7 +245,7 @@ inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 
 " playing with nvim-treesitter
-nnoremap <leader>tt :lua require('travis.travistest').test()<cr>
+nnoremap <leader>tt :lua require('travis.travistest').goToPattern()<cr>
 
 " compe mappings
 inoremap <silent><expr> <C-Space> compe#complete()
@@ -348,3 +348,22 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " run all configuration in lua/travis
 lua require('runall')
+
+" match-up with treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+  },
+}
+EOF
+
+" this is helping match elements in vue templates with %
+if exists("loaded_matchit")
+  let b:match_ignorecase = 1
+  let b:match_words = '<:>,' .
+        \ '<\@<=[ou]l\>[^>]*\%(>\|$\):<\@<=li\>:<\@<=/[ou]l>,' .
+        \ '<\@<=dl\>[^>]*\%(>\|$\):<\@<=d[td]\>:<\@<=/dl>,' .
+        \ '<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
+endif

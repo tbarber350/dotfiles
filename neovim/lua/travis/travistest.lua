@@ -12,4 +12,11 @@ M.test = function ()
 
 end
 
+M.goToPattern = function ()
+    for k,v in pairs(vim.b) do
+        print('k',k,'v',v)
+    end
+	print(vim.b)
+end
+
 return M
