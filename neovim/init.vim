@@ -97,6 +97,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Plug 'junegunn/fzf.vim'
 
+Plug 'leafOfTree/vim-vue-plugin'
+
 call plug#end()
 
 
@@ -359,11 +361,3 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-" this is helping match elements in vue templates with %
-if exists("loaded_matchit")
-  let b:match_ignorecase = 1
-  let b:match_words = '<:>,' .
-        \ '<\@<=[ou]l\>[^>]*\%(>\|$\):<\@<=li\>:<\@<=/[ou]l>,' .
-        \ '<\@<=dl\>[^>]*\%(>\|$\):<\@<=d[td]\>:<\@<=/dl>,' .
-        \ '<\@<=\([^/][^ \t>]*\)[^>]*\%(>\|$\):<\@<=/\1>'
-endif
