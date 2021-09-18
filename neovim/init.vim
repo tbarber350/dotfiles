@@ -9,13 +9,27 @@ Plug 'neovim/nvim-lspconfig'
 
 Plug 'glepnir/lspsaga.nvim'
 
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+
+" install snippet engine
+Plug 'hrsh7th/vim-vsnip'
+
+" Install the buffer completion source
+Plug 'hrsh7th/cmp-buffer'
+
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'hrsh7th/cmp-path'
+
+Plug 'hrsh7th/cmp-emoji'
+
+Plug 'hrsh7th/cmp-nvim-lua'
 
 Plug 'onsails/lspkind-nvim'
 
 Plug 'rakr/vim-one'
 
-Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'mattn/emmet-vim'
 
@@ -32,8 +46,6 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'hoob3rt/lualine.nvim'
 
 Plug 'tpope/vim-fugitive'
-
-Plug 'garbas/vim-snipmate'
 
 Plug 'tpope/vim-surround'
 
@@ -89,8 +101,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'nvim-treesitter/playground'
 
-Plug 'hrsh7th/nvim-compe'
-
 Plug 'kyazdani42/nvim-web-devicons'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -98,6 +108,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'leafOfTree/vim-vue-plugin'
+
+Plug 'mustache/vim-mustache-handlebars'
 
 call plug#end()
 
@@ -182,8 +194,8 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 inoremap <c-e> <esc><S-a>
 
 " place the cursor on its own line inside braces after a carriage return
-inoremap <C-Return> <CR>O<Tab>
-let delimitMate_expand_cr=1
+" inoremap <c-cr> <CR>O<Tab>
+" let delimitMate_expand_cr=2
 
 " allow f6 to copy to the system clipboard on a mac
 nnoremap <F6> :%w !pbcopy <CR><CR>
@@ -249,12 +261,6 @@ nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 " playing with nvim-treesitter
 nnoremap <leader>tt :lua require('travis.travistest').goToPattern()<cr>
 
-" compe mappings
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1

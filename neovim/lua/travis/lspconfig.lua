@@ -51,8 +51,8 @@ require('lspkind').init({
     -- can be either 'default' or
     -- 'codicons' for codicon preset (requires vscode-codicons font installed)
     --
-    -- default: 'default'
-    preset = 'codicons',
+    default = 'default',
+    -- preset = 'codicons',
 
     -- override preset symbols
     --
