@@ -24,8 +24,7 @@ M.search_dotfiles = function()
 end
 
 M.curr_buff = function()
-  local opts = require('telescope.themes').get_ivy()
-  require('telescope.builtin').current_buffer_fuzzy_find(opts)
+  require('telescope.builtin').current_buffer_fuzzy_find()
 end
 
 return M

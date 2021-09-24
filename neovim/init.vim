@@ -228,14 +228,16 @@ nnoremap <Leader>z :tabedit %<CR>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fa :lua require('telescope.builtin').find_files({hidden=true})<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fr <cmd>Telescope file_browser<cr>
 nnoremap <leader>ft <cmd>Telescope grep_string<cr>
 nnoremap <leader>fd :lua require('travis.telescope').search_dotfiles()<cr>
-nnoremap <leader>fc <cmd>lua require('travis.telescope').curr_buff()<cr>
+nnoremap <leader>fc :lua require('travis.telescope').curr_buff()<cr>
 nnoremap <leader>fm <cmd>Telescope find_files cwd=~/Documents/projects/melaleuca.com<cr>
+nnoremap <leader>lg :lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>
 
 " move visually selected lines up and down
 vnoremap J :m '>+1<CR>gv=gv
