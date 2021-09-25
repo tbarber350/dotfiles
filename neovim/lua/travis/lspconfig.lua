@@ -1,5 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
+local util = require('lspconfig.util')
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -104,7 +105,8 @@ nvim_lsp.tsserver.setup{
 -- npm install -g vls
 nvim_lsp.vuels.setup{
   on_attach=on_attach,
-  filetypes = {'javascriptvue', 'vue'}
+  filetypes = {'javascriptvue', 'vue'},
+  root_dir = util.root_pattern('.eslintrc.json');
 }
 
 -- npm install -g @angular/language-server
@@ -132,15 +134,15 @@ require'lspconfig'.cssls.setup {
 -- npm install -g diagnostic-languageserver
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
-  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'javascriptvue', 'css', 'less', 'scss', 'markdown', 'pandoc', 'vue', 'html'},
+  filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'javascriptvue', 'vue', 'css', 'less', 'scss', 'markdown', 'pandoc', 'html'},
   init_options = {
     linters = {
       eslint = {
+        sourceName = 'eslint',
         command = 'eslint_d',
-        rootPatterns = { '.git' },
+        rootPatterns = { '.eslintrc.js', 'package.json' },
         debounce = 100,
         args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
-        sourceName = 'eslint_d',
         parseJson = {
           errorsRoot = '[0].messages',
           line = 'line',
@@ -162,6 +164,7 @@ nvim_lsp.diagnosticls.setup {
       typescript = 'eslint',
       typescriptreact = 'eslint',
       javascriptvue = 'eslint',
+      vue = 'eslint',
       scss = 'eslint',
       css = 'eslint',
       html = 'eslint'
