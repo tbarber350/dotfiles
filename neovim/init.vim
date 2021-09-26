@@ -369,3 +369,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+nnoremap <leader>ss :mks ~/vim-session/session.vim<cr>
+nnoremap <leader>ls :source ~/vim-session/session.vim<cr>
+
