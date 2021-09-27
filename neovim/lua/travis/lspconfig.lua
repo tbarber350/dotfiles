@@ -147,7 +147,8 @@ require'lspconfig'.stylelint_lsp.setup{
     on_attach=on_attach,
     settings = {
         stylelintplus = {
-            autoFixOnFormat = true
+            autoFixOnFormat = true,
+            filetypes = {'css', 'scss'}
         }
     }
 }
@@ -231,8 +232,8 @@ nvim_lsp.diagnosticls.setup {
             javascriptreact = 'eslint_d',
             javascriptvue = 'eslint_d',
             vue = 'eslint_d',
-            scss = 'stylelint',
-            less = 'prettier',
+            -- scss = 'stylelint',
+            -- less = 'prettier',
             typescript = 'eslint_d',
             typescriptreact = 'eslint_d',
             json = 'prettier',
