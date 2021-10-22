@@ -127,7 +127,7 @@ set ruler
 " keep ctrlP from searching certain dirs and files
 set wildignore+=*/tmp/*,*/node_modules/*,*.so,*.swp,*.zip
 
-" tabs are two spaces
+" tabs are four spaces
 set softtabstop=4
 set shiftwidth=4
 set tabstop=4
@@ -369,6 +369,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-nnoremap <leader>ss :mks ~/vim-session/session.vim<cr>
+nnoremap <leader>ss :mks! ~/vim-session/session.vim<cr>
 nnoremap <leader>ls :source ~/vim-session/session.vim<cr>
 

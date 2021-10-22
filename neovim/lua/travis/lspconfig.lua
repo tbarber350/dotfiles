@@ -43,46 +43,6 @@ local on_attach = function(client, bufnr)
     end
 end
 
-require('lspkind').init({
-    -- enables text annotations
-    --
-    -- default: true
-    with_text = true,
-
-    -- default symbol map
-    -- can be either 'default' or
-    -- 'codicons' for codicon preset (requires vscode-codicons font installed)
-    --
-    default = 'default',
-    -- preset = 'codicons',
-
-    -- override preset symbols
-    --
-    -- default: {}
-    symbol_map = {
-        Text = '',
-        Method = 'ƒ',
-        Function = '',
-        Constructor = '',
-        Variable = '',
-        Class = '',
-        Interface = 'ﰮ',
-        Module = '',
-        Property = '',
-        Unit = '',
-        Value = '',
-        Enum = '了',
-        Keyword = '',
-        Snippet = '﬌',
-        Color = '',
-        File = '',
-        Folder = '',
-        EnumMember = '',
-        Constant = '',
-        Struct = ''
-    },
-})
-
 -- npm i -g vscode-langservers-extracted
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -156,7 +116,7 @@ require'lspconfig'.stylelint_lsp.setup{
 -- npm install -g diagnostic-languageserver
 nvim_lsp.diagnosticls.setup {
     on_attach = on_attach,
-    filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'javascriptvue', 'vue', 'markdown', 'pandoc', 'html'},
+    filetypes = { 'javascript', 'angularjs', 'json', 'typescript', 'javascriptvue', 'vue', 'markdown', 'pandoc', 'html'},
     init_options = {
         linters = {
             eslint = {
@@ -202,10 +162,9 @@ nvim_lsp.diagnosticls.setup {
         },
         filetypes = {
             javascript = 'eslint',
-            javascriptreact = 'eslint',
             typescript = 'eslint',
-            typescriptreact = 'eslint',
             javascriptvue = 'eslint',
+            angularjs = 'eslint',
             vue = 'eslint',
             -- scss = 'stylelint',
             -- css = 'stylelint',
@@ -229,13 +188,11 @@ nvim_lsp.diagnosticls.setup {
         formatFiletypes = {
             css = 'stylelint',
             javascript = 'eslint_d',
-            javascriptreact = 'eslint_d',
             javascriptvue = 'eslint_d',
             vue = 'eslint_d',
             -- scss = 'stylelint',
             -- less = 'prettier',
             typescript = 'eslint_d',
-            typescriptreact = 'eslint_d',
             json = 'prettier',
             markdown = 'prettier',
         }
