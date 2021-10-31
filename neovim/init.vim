@@ -37,8 +37,6 @@ Plug 'andymass/vim-matchup'
 
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'scrooloose/nerdtree'
-
 Plug 'tomtom/tlib_vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -111,6 +109,8 @@ Plug 'leafOfTree/vim-vue-plugin'
 
 Plug 'mustache/vim-mustache-handlebars'
 
+Plug 'code-biscuits/nvim-biscuits'
+
 call plug#end()
 
 
@@ -181,8 +181,6 @@ set signcolumn=yes
 if exists("+colorcolumn")
     set colorcolumn=80
 endif
-
-
 
 " Shortcut to rapidly toggle `set list`
 noremap <leader>l :set list!<CR>
@@ -289,7 +287,7 @@ endfunction
 
 if has("autocmd")
     " remove trailing white space when file is saved
-    autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre *.py,*.js.*.vue :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
     au BufRead,BufNewFile *.ejs setfiletype html
     " complete dashed words
@@ -372,3 +370,14 @@ EOF
 nnoremap <leader>ss :mks! ~/vim-session/session.vim<cr>
 nnoremap <leader>ls :source ~/vim-session/session.vim<cr>
 
+function! Scratch()
+    split
+    noswapfile hide enew
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    "setlocal nobuflisted
+    "lcd ~
+    file scratch
+endfunction
+
+nnoremap <leader>sc :call Scratch()<cr>

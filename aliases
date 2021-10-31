@@ -13,6 +13,7 @@ alias dp="cd /Volumes/design\ group/20\ Web\ Center/01\ NewWeb/100\ CMS/19_Detai
 alias 500="cd /Volumes/public/DesignGroup/500\ Web\ Marketing/"
 alias melahome="cd ~/Documents/projects/melaleuca.com/"
 alias felib="cd ~/Documents/projects/DEP-Phase1/fe-library/"
+alias melatree="cd /Users/us16777/Documents/projects/NSE-worktrees"
 
 alias ..="cd .."
 alias ...="cd ../.."
