@@ -111,6 +111,8 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'code-biscuits/nvim-biscuits'
 
+Plug 'ThePrimeagen/harpoon'
+
 call plug#end()
 
 
@@ -261,6 +263,14 @@ nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
 " playing with nvim-treesitter
 nnoremap <leader>tt :lua require('travis.travistest').goToPattern()<cr>
 
+" harpoon file navigation
+nnoremap <leader>mm :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>mt :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>ma :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <leader>ms :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <leader>md :lua require("harpoon.ui").nav_file(3)<cr>
+nnoremap <leader>mf :lua require("harpoon.ui").nav_file(4)<cr>
+nnoremap <leader>mg :lua require("harpoon.ui").nav_file(5)<cr>
 
 let g:javascript_enable_domhtmlcss=1
 let g:javascript_ignore_javaScriptdoc=1
@@ -381,3 +391,4 @@ function! Scratch()
 endfunction
 
 nnoremap <leader>sc :call Scratch()<cr>
+

@@ -58,3 +58,4 @@ alias createNotes="echo  'ops meeting notes:\n=========\n\nworking on currently\
 # from csswizardry.com
 alias grecent="git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias grecap="git log --all --format=medium --no-merges --author=tbarber@melaleuca.com"
+alias gwl="git worktree list"
