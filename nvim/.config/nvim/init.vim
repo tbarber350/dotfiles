@@ -392,3 +392,5 @@ endfunction
 
 nnoremap <leader>sc :call Scratch()<cr>
 
+" make current file executable
+nnoremap <leader>x :!chmod +x %<CR>

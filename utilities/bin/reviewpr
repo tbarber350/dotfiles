@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+read -p "PR branch name: " branch
+read -p "work tree PR name: " work_tree
+
+cd ~/Documents/projects/DEP-Phase1/fe-library
+
+## git fetch origin $branch 
+
