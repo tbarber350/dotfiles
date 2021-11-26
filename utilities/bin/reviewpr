@@ -2,8 +2,20 @@
 
 read -p "PR branch name: " branch
 read -p "work tree PR name: " work_tree
+read -p "which area: " sub_folder
+session_name=$(basename $branch)
 
-cd ~/Documents/projects/DEP-Phase1/fe-library
+session_path="/Users/us16777/Documents/projects/pr/$work_tree/fe-library" 
 
-## git fetch origin $branch 
+cd ~/Documents/projects/DEP-Phase1
+
+git fetch origin $branch 
+
+git worktree add ../pr/$work_tree $branch
+
+tmux new-session -s "$session_name" -c "$session_path" -d 
+tmux switch-client -t $session_name 
+tmux send-keys -t $session_name 'npm install' ENTER
+tmux split-window -h -t $session_name -c "$session_path/$sub_folder"
+tmux send-keys -t $session_name 'npm install' ENTER
 
