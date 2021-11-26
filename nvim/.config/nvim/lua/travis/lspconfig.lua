@@ -48,6 +48,9 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+-- npm i -g bash-language-server
+nvim_lsp.bashls.setup{}
+
 nvim_lsp.html.setup{
     on_attach = on_attach
 }
