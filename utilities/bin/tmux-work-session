@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+read -p "branch name: " branch_name
+read -p "bug (b) or feature (f): " kind
+session_name=$(basename "$branch_name" | tr . _)
+
+cd /Users/us16777/Documents/projects/DEP-Phase1
+
+if [[ $kind == "b" ]] 
+then
+    kind="bug"
+else 
+    kind="feature"
+fi
+
+git worktree add -b $branch_name ../$kind/tb/$session_name
+
+working_directory="/Users/us16777/Documents/projects/$kind/tb/$session_name/fe-library"
+
+if ! tmux has-session -t "$session_name" 2> /dev/null; then
+    tmux new-session -s "$session_name" -c "$working_directory" -d 
+    tmux switch-client -t $session_name 
+    tmux send-keys -t $session_name "nvim" ENTER
+    tmux split-window -v -p 30 -t $session_name -c "$working_directory"
+    tmux send-keys -t $session_name "npm install" ENTER
+    tmux split-window -h -t $session_name -c "$working_directory"
+else
+    tmux switch-client -t "$session_name"
+fi
+
+
