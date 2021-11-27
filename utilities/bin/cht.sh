@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-languages=`echo "javascript typescript vuejs lua rust" | tr ' ' '\n'`
+languages=`echo "javascript typescript vuejs lua rust bash" | tr ' ' '\n'`
 core_utils=`echo "xargs find mv sed awk rg fd" | tr ' ' '\n'`
 
 selected=`printf "$languages\n$core_utils" | fzf`
