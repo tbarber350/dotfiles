@@ -3,7 +3,7 @@
 read -p "PR branch name: " branch
 read -p "work tree PR name: " work_tree
 read -p "which area: " sub_folder
-session_name=$(basename $branch)
+session_name="PR-$(basename $branch)"
 
 session_path="/Users/us16777/Documents/projects/pr/$work_tree/fe-library" 
 
