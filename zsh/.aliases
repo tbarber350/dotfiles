@@ -62,10 +62,11 @@ alias gwl="git worktree list"
 alias gwr='git worktree remove "$(git worktree list | fzf | grep -Eo "^[^ ]+")"'
 alias gwrf='git worktree remove "$(git worktree list | fzf | grep -Eo "^[^ ]+")" --force'
 alias gdb='git branch -d "$(git branch | fzf | tr -d "+ ")"'
-alias gdD='git branch -D "$(git branch | fzf | tr -d "+ ")"'
+alias gDb='git branch -D "$(git branch | fzf | tr -d "+ ")"'
 
 # see local development servers running for patternlab
 alias showservers="ps -ef | grep '\-\-env.development'"
 
 # tmux aliases
 alias tks='tmux kill-session -t "$(tmux ls | fzf | grep -Eo "^[^: ]+")"'
+alias tss='tmux switch-client -t $(tmux ls | fzf | grep -Eo "^.+: " | tr -d ": ")'
