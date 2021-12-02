@@ -70,3 +70,8 @@ alias showservers="ps -ef | grep '\-\-env.development'"
 # tmux aliases
 alias tks='tmux kill-session -t "$(tmux ls | fzf | grep -Eo "^[^: ]+")"'
 alias tss='tmux switch-client -t $(tmux ls | fzf | grep -Eo "^.+: " | tr -d ": ")'
+
+#npm aliases
+alias nrsp='npm run start:productstore'
+alias nrsm='npm run start:marketplace'
+alias nrsc='npm run start:common'

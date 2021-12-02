@@ -10,7 +10,7 @@ if [[ $kind == "b" ]]
 then
     kind="bug"
 else 
-    kind="feature"
+    kind="features"
 fi
 
 git worktree add -b $branch_name ../$kind/tb/$session_name
