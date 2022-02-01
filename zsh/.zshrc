@@ -97,16 +97,6 @@ export EDITOR='vim'
 # nvm
 
 export PATH="/usr/local/Cellar/purescript/0.10.5/bin:$PATH"
-if [[ -s /Users/travis ]]; 
-then
-    export NVM_DIR="/Users/travis/.nvm"
-    export PATH=/Users/travis/bin:$PATH
-else
-    export NVM_DIR="/Users/us16777/.nvm"
-    export PATH=/Users/us16777/.local/bin:$PATH
-fi
-
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if [ -e /Users/us16777/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/us16777/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 # set -o vi
@@ -118,3 +108,5 @@ export PATH=$PATH:$HOME/bin
 alias luamake=/Users/us16777/lua-language-server/3rd/luamake/luamake
 
 bindkey -s ^f "tmux-sessionizer\n"
+
+eval "$(fnm env)"
