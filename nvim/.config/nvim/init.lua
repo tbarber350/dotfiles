@@ -1,6 +1,7 @@
 require "travis.plugins"
 require "travis.options"
 require "travis.keymaps"
+require "travis.autopairs"
 require "travis.cmp"
 -- require "travis.lspconfig"
 require "travis.lsp"

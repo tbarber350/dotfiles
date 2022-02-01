@@ -45,12 +45,8 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- an implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- useful lua functions us by lots of plugins
     use "gruvbox-community/gruvbox" -- colorscheme
-    use {
-        "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
-        config = function()
-            require('nvim-autopairs').setup{}
-        end
-    }
+    use "windwp/nvim-autopairs" -- autopairs, integrates with both cmp and treesitter
+
     use {
         'numToStr/Comment.nvim',
         config = function()
