@@ -1,7 +1,8 @@
 local actions = require('telescope.actions')
 local action_state = require('telescope.actions.state')
+local telescope = require("telescope")
 
-require('telescope').setup{
+telescope.setup{
     defaults = {
         mappings = {
             i = {
@@ -12,7 +13,8 @@ require('telescope').setup{
     }
 }
 
-require('telescope').load_extension('fzy_native')
+telescope.load_extension('fzy_native')
+telescope.load_extension('file_browser')
 
 local M = {}
 M.search_dotfiles = function()
