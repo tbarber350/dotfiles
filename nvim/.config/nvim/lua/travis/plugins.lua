@@ -59,10 +59,13 @@ return packer.startup(function(use)
     use 'editorconfig/editorconfig-vim'
     use 'vimwiki/vimwiki'
 
-    use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-unimpaired'
+
+    -- git
+    use 'tpope/vim-fugitive'
+    use 'lewis6991/gitsigns.nvim'
 
     use 'christoomey/vim-sort-motion' -- sort things with motions
     use 'godlygeek/tabular' -- line things up

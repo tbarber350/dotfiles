@@ -8,6 +8,7 @@ require "travis.lsp"
 require "travis.lualine"
 require "travis.telescope"
 require "travis.treesitter"
+require "travis.gitsigns"
 
 -- color scheme
 vim.cmd [[ 

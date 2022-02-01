@@ -64,6 +64,11 @@ keymap("n", "<Leader>gg", ":diffget //2<cr>", opts)
 keymap("n", "<Leader>gh", ":diffget //3<cr>", opts)
 keymap("n", "<Leader>gw", ":Gwrite<cr>", opts)
 
+-- gitsigns navigation
+keymap("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<Leader>gz", "<cmd>Gitsigns preview_hunk<CR>", opts)
+
 -- Find files using Telescope command-line sugar.
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
