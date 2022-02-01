@@ -35,7 +35,8 @@ Plug 'mattn/emmet-vim'
 
 Plug 'andymass/vim-matchup'
 
-Plug 'scrooloose/nerdcommenter'
+" Plug 'scrooloose/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 
 Plug 'tomtom/tlib_vim'
 
@@ -47,7 +48,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-surround'
 
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-repeat'
 
@@ -148,6 +149,7 @@ colorscheme gruvbox
 set background=dark
 " set background=light
 
+lua require('Comment').setup()
 " put .swp file in a tmp directory in my home directory
 set directory=~/.swptmp
 
@@ -184,6 +186,7 @@ if exists("+colorcolumn")
     set colorcolumn=80
 endif
 
+let mapleader = '<Space>'
 " Shortcut to rapidly toggle `set list`
 noremap <leader>l :set list!<CR>
 
@@ -294,16 +297,17 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+set iskeyword+=-
 
 if has("autocmd")
     " remove trailing white space when file is saved
     autocmd BufWritePre *.py,*.js.*.vue :call <SID>StripTrailingWhitespaces()
     " treat ejs like html
-    au BufRead,BufNewFile *.ejs setfiletype html
+    au BufRead,BufNewFile *.ejs, *.hbs setfiletype html
     " complete dashed words
     autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
     " trigger emmet
-    au FileType html,css,sass,scss,less,mustache,vue imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")
+    au FileType html,css,sass,scss,less,mustache,vue,hbs imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")
 endif
 
 
@@ -394,3 +398,10 @@ nnoremap <leader>sc :call Scratch()<cr>
 
 " make current file executable
 nnoremap <leader>x :!chmod +x %<CR>
+
+" fugitive bindings
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gg :diffget //2<CR>
+nnoremap <leader>gh :diffget //3<CR>
+nnoremap <leader>gw :Gwrite<CR>
+

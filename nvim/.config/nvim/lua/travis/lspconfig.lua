@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    buf_set_keymap('n', '<leader>ae', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '<leader>ae', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     buf_set_keymap('n', '<leader>ak', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', '<leader>aj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -117,6 +117,7 @@ require'lspconfig'.stylelint_lsp.setup{
 }
 
 -- npm install -g diagnostic-languageserver
+-- npm install -g eslint_d
 nvim_lsp.diagnosticls.setup {
     on_attach = on_attach,
     filetypes = { 'javascript', 'angularjs', 'json', 'typescript', 'javascriptvue', 'vue', 'markdown', 'pandoc', 'html'},
@@ -245,7 +246,7 @@ require'lspconfig'.sumneko_lua.setup {
             -- Do not send telemetry data containing a randomized but unique identifier
             telemetry = {
                 enable = false,
-            } 
+            }
         },
     },
 }
