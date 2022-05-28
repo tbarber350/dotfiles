@@ -6,6 +6,6 @@ return {
             ignoreProjectWarning = true
         },
     },
-    filetypes = {'javascriptvue', 'vue'},
-    root_dir = util.root_pattern('.eslintrc.json');
+    filetypes = {'vue'},
+    root_dir = util.root_pattern('.eslintrc.json', '.eslintrc.cjs', '.eslintrc.js');
 }

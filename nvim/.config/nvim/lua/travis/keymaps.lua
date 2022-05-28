@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+keymap("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -54,6 +54,11 @@ keymap("n", "<Leader>ss", ":mks! ~/vim-session/session.vim<cr>", opts)
 
 -- load session
 keymap("n", "<Leader>ls", ":source ~/vim-session/session.vim<cr>", opts)
+
+-- netrw
+keymap("n", "<Leader>-v", ":Vex<cr>", opts)
+keymap("n", "<Leader>-s", ":Sex<cr>", opts)
+keymap("n", "<Leader>-l", ":Lexplore<cr>", opts)
 
 -- make current file executable
 keymap("n", "<Leader>x", ":!chmod +x %<CR>", opts)
