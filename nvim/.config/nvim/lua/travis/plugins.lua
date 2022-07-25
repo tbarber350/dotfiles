@@ -12,11 +12,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
         install_path,
     }
     print "Installing packer close and reopen Neovim..."
-    vim.cmd [[packadd packer.nvim]]
+    _ = vim.cmd [[
+        packadd packer.nvim
+    ]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
+_ = vim.cmd [[
     augroup packer_user_config
         autocmd!
         autocmd BufWritePost plugins.lua source <afile> | PackerSync
@@ -129,4 +131,3 @@ return packer.startup(function(use)
         require("packer").sync()
     end
 end)
-

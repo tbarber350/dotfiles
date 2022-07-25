@@ -36,7 +36,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.cmd [[
+_ = vim.cmd [[
     " treat dashed words as whole words
     set iskeyword+=-
     filetype indent on

@@ -11,7 +11,7 @@ require "travis.treesitter"
 require "travis.gitsigns"
 
 -- color scheme
-vim.cmd [[ 
+_ = vim.cmd [[ 
     colorscheme gruvbox
     let g:gruvbox_contrast_dark = 'hard'
     if exists('+termguicolors')
@@ -19,3 +19,4 @@ vim.cmd [[
       let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     endif
 ]]
+

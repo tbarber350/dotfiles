@@ -6,9 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Modes
 --  nomal_mode = "n",
@@ -88,7 +86,7 @@ keymap("n", "<Leader>fd", "<cmd>lua require('travis.telescope').search_dotfiles(
 keymap("n", "<Leader>fc", "<cmd>lua require('travis.telescope').curr_buff()<cr>", opts)
 keymap("n", "<Leader>lg", "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", opts)
 
-vim.cmd [[
+_ = vim.cmd [[
     function! Scratch()
         split
         noswapfile hide enew
@@ -101,7 +99,7 @@ vim.cmd [[
 ]]
 keymap("n", "<Leader>sc", ":call Scratch()<CR>", opts)
 
-vim.cmd [[
+_ = vim.cmd [[
     function! StripTrailingWhitespaces()
         " Preparation: save last search, and cursor position.
         let _s=@/
@@ -141,7 +139,7 @@ keymap("i", "<C-e>", "<esc><S-a>", opts)
 keymap("i", "<C-k>", "<Cmd>Lspsaga signature_help<CR>", opts)
 
 -- emmet
-vim.cmd [[au FileType html,css,sass,scss,less,mustache,vue,hbs imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")]]
+_ = vim.cmd [[au FileType html,css,sass,scss,less,mustache,vue,hbs imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")]]
 
 -- Visual --
 -- Move text up and down
