@@ -139,7 +139,7 @@ keymap("i", "<C-e>", "<esc><S-a>", opts)
 keymap("i", "<C-k>", "<Cmd>Lspsaga signature_help<CR>", opts)
 
 -- emmet
-_ = vim.cmd [[au FileType html,css,sass,scss,less,mustache,vue,hbs imap <expr><leader><tab> emmet#expandAbbrIntelligent("\<tab>")]]
+_ = vim.cmd [[au FileType html,css,sass,scss,less,mustache,vue,hbs imap <expr><tab> emmet#expandAbbrIntelligent("\<tab>")]]
 
 -- Visual --
 -- Move text up and down
