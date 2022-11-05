@@ -124,7 +124,7 @@ nvim_lsp.diagnosticls.setup {
     init_options = {
         linters = {
             eslint = {
-                sourceName = 'eslint',
+                sourceName = 'eslint_d',
                 command = 'eslint_d',
                 rootPatterns = { '.eslintrc.js', 'package.json' },
                 debounce = 100,
