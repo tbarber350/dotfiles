@@ -46,7 +46,8 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- have packer manage itself
     use "nvim-lua/popup.nvim" -- an implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- useful lua functions us by lots of plugins
-    use "gruvbox-community/gruvbox" -- colorscheme
+    -- use "gruvbox-community/gruvbox" -- colorscheme
+    use "EdenEast/nightfox.nvim"
     use "windwp/nvim-autopairs" -- autopairs, integrates with both cmp and treesitter
 
     use {

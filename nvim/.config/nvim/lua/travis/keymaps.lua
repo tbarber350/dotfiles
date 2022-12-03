@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 vim.g.mapleader = " "
@@ -75,16 +75,16 @@ keymap("n", "<Leader>gz", "<cmd>Gitsigns preview_hunk<CR>", opts)
 -- Find files using Telescope command-line sugar.
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fa", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>", opts)
+keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files({hidden=true}) end, opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 keymap("n", "<Leader>fr", "<cmd>Telescope file_browser<cr>", {noremap = true})
 keymap("n", "<Leader>fe", "<cmd>Telescope lsp_references<cr>", {noremap = true})
 keymap("n", "<Leader>ft", "<cmd>Telescope grep_string<cr>", opts)
-keymap("n", "<Leader>fd", "<cmd>lua require('travis.telescope').search_dotfiles()<cr>", {noremap = true, silent = false})
-keymap("n", "<Leader>fc", "<cmd>lua require('travis.telescope').curr_buff()<cr>", opts)
-keymap("n", "<Leader>lg", "<cmd>lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>", opts)
+keymap("n", "<Leader>fd", function() return require('travis.telescope').search_dotfiles() end, {noremap = true, silent = false})
+keymap("n", "<Leader>fc", function() return require('travis.telescope').curr_buff() end, opts)
+keymap("n", "<Leader>lg", function() return require('telescope.builtin').live_grep({grep_open_files=true}) end, opts)
 
 _ = vim.cmd [[
     function! Scratch()
@@ -119,13 +119,13 @@ keymap("n", "<S-k>", "<Cmd>Lspsaga hover_doc<CR>", opts)
 keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 
 -- harpoon navigation
-keymap("n", "<Leader>mm", "<cmd>lua require('harpoon.mark').add_file()<cr>", opts)
-keymap("n", "<Leader>mt", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-keymap("n", "<Leader>ma", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", opts)
-keymap("n", "<Leader>ms", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
-keymap("n", "<Leader>md", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
-keymap("n", "<Leader>mf", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
-keymap("n", "<Leader>mg", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", opts)
+keymap("n", "<Leader>mm", function() return require('harpoon.mark').add_file() end, opts)
+keymap("n", "<Leader>mt", function() return require('harpoon.ui').toggle_quick_menu() end, opts)
+keymap("n", "<Leader>ma", function() return require('harpoon.ui').nav_file(1) end, opts)
+keymap("n", "<Leader>ms", function() return require('harpoon.ui').nav_file(2) end, opts)
+keymap("n", "<Leader>md", function() return require('harpoon.ui').nav_file(3) end, opts)
+keymap("n", "<Leader>mf", function() return require('harpoon.ui').nav_file(4) end, opts)
+keymap("n", "<Leader>mg", function() return require('harpoon.ui').nav_file(5) end, opts)
 
 -- change fileformat to unix
 keymap("n", "<Leader>tu", "<cmd>set ff=unix<cr>", opts)

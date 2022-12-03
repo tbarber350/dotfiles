@@ -36,6 +36,15 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+-- color scheme
+_ = vim.cmd [[ 
+    colorscheme nightfox
+    if exists('+termguicolors')
+      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
+]]
+
 _ = vim.cmd [[
     " treat dashed words as whole words
     set iskeyword+=-
