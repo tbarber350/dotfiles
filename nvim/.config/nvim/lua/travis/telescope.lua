@@ -29,4 +29,12 @@ M.curr_buff = function()
   require('telescope.builtin').current_buffer_fuzzy_find()
 end
 
+M.search_snippets = function()
+    require('telescope.builtin').find_files({
+        promp_title = "< Snippets >",
+        cwd = '/users/us16777/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets',
+        hidden = true,
+    })
+end
+
 return M

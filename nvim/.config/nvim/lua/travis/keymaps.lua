@@ -83,6 +83,7 @@ keymap("n", "<Leader>fr", "<cmd>Telescope file_browser<cr>", {noremap = true})
 keymap("n", "<Leader>fe", "<cmd>Telescope lsp_references<cr>", {noremap = true})
 keymap("n", "<Leader>ft", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<Leader>fd", function() return require('travis.telescope').search_dotfiles() end, {noremap = true, silent = false})
+keymap("n", "<Leader>fs", function() return require('travis.telescope').search_snippets() end, {noremap = true, silent = false})
 keymap("n", "<Leader>fc", function() return require('travis.telescope').curr_buff() end, opts)
 keymap("n", "<Leader>lg", function() return require('telescope.builtin').live_grep({grep_open_files=true}) end, opts)
 
