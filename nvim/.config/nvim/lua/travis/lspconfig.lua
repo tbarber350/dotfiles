@@ -68,6 +68,12 @@ nvim_lsp.vuels.setup{
     on_attach=on_attach,
     settings = {
         vetur = {
+            completion = {
+                autoImport = true
+            },
+            format = {
+                scriptInitialIndent = true
+            },
             ignoreProjectWarning = true
         },
     },
