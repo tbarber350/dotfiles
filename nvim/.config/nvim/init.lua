@@ -1,13 +1,6 @@
 require "travis.plugins"
 require "travis.options"
-require "travis.autopairs"
-require "travis.cmp"
-require "travis.lspconfig"
-require "travis.lsp"
-require "travis.lualine"
-require "travis.telescope"
-require "travis.treesitter"
-require "travis.gitsigns"
-require "travis.comment"
 require "travis.keymaps"
-require "travis.copilot"
+
+local home_dir = os.getenv("HOME")
+package.path = home_dir .. "/.config/nvim/after/plugin/?.lua;" .. package.path

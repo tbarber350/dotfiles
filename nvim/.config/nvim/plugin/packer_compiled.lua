@@ -245,6 +245,11 @@ _G.packer_plugins = {
     path = "/Users/us16777/.local/share/nvim/site/pack/packer/start/tmux-complete.vim",
     url = "https://github.com/wellle/tmux-complete.vim"
   },
+  undotree = {
+    loaded = true,
+    path = "/Users/us16777/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/us16777/.local/share/nvim/site/pack/packer/start/vim-fugitive",

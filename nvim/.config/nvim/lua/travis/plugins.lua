@@ -66,6 +66,8 @@ return packer.startup(function(use)
     use 'tpope/vim-repeat'
     use 'tpope/vim-unimpaired'
 
+    use 'mbbill/undotree'
+
     -- git
     use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'

@@ -47,6 +47,9 @@ keymap("n", "<Leader>sv", ":source $MYVIMRC<CR>", opts)
 
 keymap("n", "<C-c>", "<esc>", opts)
 
+-- undotree
+keymap("n", "<Leader>u", vim.cmd.UndotreeToggle, opts)
+
 -- save session
 keymap("n", "<Leader>ss", ":mks! ~/vim-session/session.vim<cr>", opts)
 
@@ -54,38 +57,24 @@ keymap("n", "<Leader>ss", ":mks! ~/vim-session/session.vim<cr>", opts)
 keymap("n", "<Leader>ls", ":source ~/vim-session/session.vim<cr>", opts)
 
 -- netrw
-keymap("n", "<Leader>-v", ":Vex<cr>", opts)
-keymap("n", "<Leader>-s", ":Sex<cr>", opts)
-keymap("n", "<Leader>-l", ":Lexplore<cr>", opts)
+keymap("n", "<Leader>nv", vim.cmd.Vex, opts)
+keymap("n", "<Leader>ns", vim.cmd.Sex, opts)
+keymap("n", "<Leader>ne", vim.cmd.Ex, opts)
 
 -- make current file executable
 keymap("n", "<Leader>x", ":!chmod +x %<CR>", opts)
 
 -- fugitive bindings
-keymap("n", "<Leader>gs", ":G<cr>", opts)
+keymap("n", "<Leader>gs", vim.cmd.G, opts)
 keymap("n", "<Leader>gg", ":diffget //2<cr>", opts)
 keymap("n", "<Leader>gh", ":diffget //3<cr>", opts)
-keymap("n", "<Leader>gw", ":Gwrite<cr>", opts)
+keymap("n", "<Leader>gw", vim.cmd.Gwrite, opts)
 
 -- gitsigns navigation
 keymap("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>gz", "<cmd>Gitsigns preview_hunk<CR>", opts)
 
--- Find files using Telescope command-line sugar.
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files({hidden=true}) end, opts)
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap("n", "<Leader>fr", "<cmd>Telescope file_browser<cr>", {noremap = true})
-keymap("n", "<Leader>fe", "<cmd>Telescope lsp_references<cr>", {noremap = true})
-keymap("n", "<Leader>ft", "<cmd>Telescope grep_string<cr>", opts)
-keymap("n", "<Leader>fd", function() return require('travis.telescope').search_dotfiles() end, {noremap = true, silent = false})
-keymap("n", "<Leader>fs", function() return require('travis.telescope').search_snippets() end, {noremap = true, silent = false})
-keymap("n", "<Leader>fc", function() return require('travis.telescope').curr_buff() end, opts)
-keymap("n", "<Leader>lg", function() return require('telescope.builtin').live_grep({grep_open_files=true}) end, opts)
 
 _ = vim.cmd [[
     function! Scratch()
@@ -116,7 +105,7 @@ _ = vim.cmd [[
 keymap("n", "<F5>", ":call StripTrailingWhitespaces()<CR>", opts)
 
 -- show hover doc
-keymap("n", "<S-k>", "<Cmd>Lspsaga hover_doc<CR>", opts)
+-- keymap("n", "<S-k>", "<Cmd>Lspsaga hover_doc<CR>", opts)
 keymap("n", "gh", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 
 -- harpoon navigation
