@@ -70,6 +70,8 @@ return packer.startup(function(use)
     use 'tpope/vim-fugitive'
     use 'lewis6991/gitsigns.nvim'
 
+    use 'github/copilot.vim'
+
     use 'christoomey/vim-sort-motion' -- sort things with motions
     use 'godlygeek/tabular' -- line things up
     use 'leafOfTree/vim-vue-plugin'
