@@ -124,6 +124,11 @@ return packer.startup(function(use)
      'nvim-treesitter/nvim-treesitter',
      run = ':TSUpdate'
     }
+
+    use { -- additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
+    }
     use 'nvim-treesitter/playground'
 
     -- status line
