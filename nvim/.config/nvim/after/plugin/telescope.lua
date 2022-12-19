@@ -52,6 +52,7 @@ keymap("n", "<Leader>ft", "<cmd>Telescope grep_string<cr>", opts)
 keymap("n", "<Leader>fd", function() return M.search_dotfiles() end, {noremap = true, silent = false})
 keymap("n", "<Leader>fs", function() return M.search_snippets() end, {noremap = true, silent = false})
 keymap("n", "<Leader>fc", function() return M.curr_buff() end, opts)
+keymap("n", "<Leader>fv", require('telescope.builtin').git_files, {noremap = true, silent = false})
 keymap("n", "<Leader>lg", function() return require('telescope.builtin').live_grep({grep_open_files=true}) end, opts)
 keymap("n", "<Leader>fr", function()
     require('telescope.builtin').grep_string({
