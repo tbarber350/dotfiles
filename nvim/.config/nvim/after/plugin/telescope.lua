@@ -42,13 +42,13 @@ M.search_snippets = function()
 end
 
 -- Find files using Telescope command-line sugar.
-keymap("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<Leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", opts)
 keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files({hidden=true}) end, opts)
-keymap("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<Leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+keymap("n", "<Leader>fb", "<cmd>Telescope buffers theme=ivy<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opts)
 keymap("n", "<Leader>fe", "<cmd>Telescope lsp_references<cr>", {noremap = true})
-keymap("n", "<Leader>ft", "<cmd>Telescope grep_string<cr>", opts)
+keymap("n", "<Leader>ft", "<cmd>Telescope grep_string theme=ivy<cr>", opts)
 keymap("n", "<Leader>fd", function() return M.search_dotfiles() end, {noremap = true, silent = false})
 keymap("n", "<Leader>fs", function() return M.search_snippets() end, {noremap = true, silent = false})
 keymap("n", "<Leader>fc", function() return M.curr_buff() end, opts)

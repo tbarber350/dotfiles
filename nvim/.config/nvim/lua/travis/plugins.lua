@@ -46,7 +46,6 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- have packer manage itself
     use "nvim-lua/popup.nvim" -- an implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- useful lua functions us by lots of plugins
-    -- use "gruvbox-community/gruvbox" -- colorscheme
     use "EdenEast/nightfox.nvim"
     use "windwp/nvim-autopairs" -- autopairs, integrates with both cmp and treesitter
 
@@ -56,6 +55,17 @@ return packer.startup(function(use)
             require('Comment').setup()
         end
      }
+
+    use {
+    "danymat/neogen",
+    config = function()
+        require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+    }
+
     use 'mattn/emmet-vim'
     use 'andymass/vim-matchup' -- extend % to more objects
     use 'lukas-reineke/indent-blankline.nvim' -- indentation guide lines
