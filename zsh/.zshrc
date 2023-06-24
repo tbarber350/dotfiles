@@ -50,7 +50,9 @@ setopt APPEND_HISTORY
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+if [[ $HOME = "/Users/travisbarber" ]]; then
+ZSH=/Users/travisbarber/.oh-my-zsh
+fi
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -66,7 +68,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/us16777/bin:/usr/local/share/npm/lib/node_modules/jshint/bin:/Library/Frameworks/Mono.framework/Versions/5.0.1/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -110,3 +111,10 @@ alias luamake=/Users/us16777/lua-language-server/3rd/luamake/luamake
 bindkey -s ^f "tmux-sessionizer\n"
 
 eval "$(fnm env)"
+
+export PATH=/opt/homebrew/bin:$PATH
+
+# environment variables for react-native tools
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools

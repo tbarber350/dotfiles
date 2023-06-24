@@ -74,6 +74,7 @@ keymap("n", "<Leader>gw", vim.cmd.Gwrite, opts)
 keymap("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
 keymap("n", "<Leader>gz", "<cmd>Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<Leader>gl", "<cmd>Gitsigns blame_line<CR>", opts)
 
 
 _ = vim.cmd [[
