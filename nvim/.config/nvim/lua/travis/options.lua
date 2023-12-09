@@ -28,6 +28,9 @@ local options = {
     termguicolors = true,
     background = 'dark',
     fileformat = 'unix',
+    virtualedit = 'block',
+    ignorecase = true,
+    scrolloff = 999, -- keep cursor centered
 }
 
 vim.opt.shortmess:append "c"

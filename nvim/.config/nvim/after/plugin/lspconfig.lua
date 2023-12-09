@@ -186,7 +186,8 @@ nvim_lsp.diagnosticls.setup {
             },
             prettier = {
                 command = 'prettier',
-                args = { '--stdin-filepath', '%filename' }
+                args = { '--stdin-filepath', '%filename' },
+                rootPatterns = { '.prettierrc' },
             },
             stylelint = {
                 command = 'stylelint',
