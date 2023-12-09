@@ -33,6 +33,10 @@ local options = {
     scrolloff = 999, -- keep cursor centered
 }
 
+--Remap space as leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do

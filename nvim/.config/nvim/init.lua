@@ -1,5 +1,5 @@
-require "travis.plugins"
 require "travis.options"
+require "travis.lazyplugins"
 require "travis.keymaps"
 
 local home_dir = os.getenv("HOME")
