@@ -14,6 +14,7 @@ local on_attach = function(client, bufnr)
     local bufopts = { noremap=true, silent=true }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -30,9 +31,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ak', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', '<leader>aj', vim.diagnostic.goto_next, bufopts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, bufopts)
-    vim.keymap.set("n", "<space>f", vim.lsp.buf.formatting, bufopts)
 
-    -- formatting
     if client.server_capabilities.document_formatting then
         vim.api.nvim_command [[augroup Format]]
         vim.api.nvim_command [[autocmd! * <buffer>]]
