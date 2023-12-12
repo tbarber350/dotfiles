@@ -77,7 +77,7 @@ require('lazy').setup({
     {
         'ThePrimeagen/harpoon',
         config = function()
-            require('travis.plugin.harpoon')
+            require('travis.plugin.harpoon-config')
         end
     }, -- navigate between files
 

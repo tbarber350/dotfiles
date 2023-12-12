@@ -75,3 +75,7 @@ alias tss='tmux switch-client -t $(tmux ls | fzf | grep -Eo "^.+: " | tr -d ": "
 alias nrsp='npm run start:productstore'
 alias nrsm='npm run start:marketplace'
 alias nrsc='npm run start:common'
+alias nrsr='npm run start:riverbend'
+
+#python
+alias python='python3'
