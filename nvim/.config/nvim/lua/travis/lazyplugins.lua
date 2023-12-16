@@ -148,11 +148,14 @@ require('lazy').setup({
 
     -- Treesitter
     {
-     'nvim-treesitter/nvim-treesitter',
-     build = ':TSUpdate',
-     config = function()
-         require('travis.plugin.treesitter')
-     end
+        'nvim-treesitter/nvim-treesitter',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
+        build = ':TSUpdate',
+        config = function()
+            require('travis.plugin.treesitter')
+        end
     },
     'nvim-treesitter/playground',
 
