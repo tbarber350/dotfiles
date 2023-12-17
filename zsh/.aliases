@@ -80,4 +80,4 @@ alias nrsr='npm run start:riverbend'
 #python
 alias python='python3'
 
-alias copyrb ="cat vendor.js brands-prod.js index.js > bundle.js && mv bundle.js ../../../riverbend/public/js/."
+alias copyrb='cat vendor.js brands-prod.js index.js > bundle.js && mv bundle.js ../../../riverbend/public/js/.'
