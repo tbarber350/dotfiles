@@ -24,30 +24,31 @@ telescope.load_extension('file_browser')
 
 local M = {}
 M.search_dotfiles = function()
-  require("telescope.builtin").find_files({
-    prompt_title = "< Dotfiles >",
-    theme = 'ivy',
-    cwd = '/users/us16777/dotfiles/nvim/.config/nvim',
-    hidden = true,
-  })
+  local opts = {
+        prompt_title = "< Dotfiles >",
+        theme = 'ivy',
+        cwd = '~/dotfiles/nvim/.config/nvim',
+        hidden = true,
+    }
+  require("telescope.builtin").find_files(themes.get_ivy(opts))
 end
 
 M.curr_buff = function()
-  require('telescope.builtin').current_buffer_fuzzy_find()
+  require('telescope.builtin').current_buffer_fuzzy_find(themes.get_ivy())
 end
 
 M.search_snippets = function()
-    require('telescope.builtin').find_files({
+    local opts = {
         promp_title = "< Snippets >",
-        theme = 'ivy',
         cwd = '/users/us16777/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets',
         hidden = true,
-    })
+    }
+    require('telescope.builtin').find_files(themes.get_ivy(opts))
 end
 
 -- Find files using Telescope command-line sugar.
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", opts)
-keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files({hidden=true, theme='ivy'}) end, opts)
+keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files(themes.get_ivy({hidden=true})) end, opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers theme=ivy<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
@@ -62,6 +63,7 @@ keymap("n", "<Leader>fr", function()
         search = vim.fn.input("Grep For > ")
     })
 end, opts)
+
 -- find the PascalCase version of the kebob-case word under the cursor
 -- useful for vue files at work
 keymap("n", "<Leader>fp", function()
@@ -70,10 +72,10 @@ keymap("n", "<Leader>fp", function()
     current_word = current_word:gsub( '-(%a)', function(first)
       return first:upper()
     end):gsub('^%a', function(first) return first:upper() end)
-    require('telescope.builtin').grep_string({
+    local opts = {
         search = current_word,
-        theme = 'ivy',
-    })
+    }
+    require('telescope.builtin').grep_string(themes.get_ivy(opts))
 end, opts)
 
 keymap("n", "<Leader>fi", function()
@@ -82,8 +84,8 @@ keymap("n", "<Leader>fi", function()
     current_word = current_word:gsub( '^(%a)', function(first)
       return '<' .. first:lower()
     end):gsub('%u', function(first) return '-' .. first:lower() end)
-    require('telescope.builtin').grep_string({
+    local opts = {
         search = current_word,
-        theme = 'ivy',
-    })
+    }
+    require('telescope.builtin').grep_string(themes.get_ivy(opts))
 end, opts)
