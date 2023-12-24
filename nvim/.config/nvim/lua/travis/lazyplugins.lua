@@ -66,7 +66,6 @@ require('lazy').setup({
 
     'christoomey/vim-sort-motion', -- sort things with motions
     'godlygeek/tabular', -- line things up
-    'leafOfTree/vim-vue-plugin',
     'mustache/vim-mustache-handlebars',
     {
         'code-biscuits/nvim-biscuits',
@@ -80,7 +79,6 @@ require('lazy').setup({
             require('travis.plugin.harpoon-config')
         end
     }, -- navigate between files
-
     -- text objects
     'kana/vim-textobj-user',
     {
@@ -144,13 +142,10 @@ require('lazy').setup({
         end
     },
     'glepnir/lspsaga.nvim',
-    -- {
-    --     'neovim/nvim-lspconfig',
-    --     config = function()
-    --         require('travis.plugin.lspconfig')
-    --     end
-    -- }, -- enables LSP
-    -- "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    {
+      'stevearc/conform.nvim',
+      opts = {},
+    },
 
     -- Telescope
     {

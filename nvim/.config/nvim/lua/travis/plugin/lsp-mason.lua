@@ -61,6 +61,7 @@ local servers = {
     -- gopls = {},
     pyright = {},
     -- rust_analyzer = {},
+    eslint_d = {},
     volar = {},
     jsonls = {},
     tsserver = {},
