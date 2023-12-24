@@ -125,14 +125,31 @@ require('lazy').setup({
     'rafamadriz/friendly-snippets', -- a bunch of snippets
 
     -- LSP
-    {
+      {
         'neovim/nvim-lspconfig',
+        dependencies = {
+            -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+
+            -- Useful status updates for LSP
+            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+            { 'j-hui/fidget.nvim', opts = {} },
+
+            -- Additional lua configuration, makes nvim stuff amazing!
+            'folke/neodev.nvim',
+        },
         config = function()
-            require('travis.plugin.lspconfig')
+            require('travis.plugin.lsp-mason')
         end
-    }, -- enables LSP
-    'williamboman/nvim-lsp-installer',
+    },
     'glepnir/lspsaga.nvim',
+    -- {
+    --     'neovim/nvim-lspconfig',
+    --     config = function()
+    --         require('travis.plugin.lspconfig')
+    --     end
+    -- }, -- enables LSP
     -- "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
     -- Telescope
