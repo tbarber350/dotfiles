@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Install your plugins here
 require('lazy').setup({
     -- My plugins here
-    "nvim-lua/popup.nvim", -- an implementation of the Popup API from vim in Neovim
+    "nvim-lua/popup.nvim",   -- an implementation of the Popup API from vim in Neovim
     "nvim-lua/plenary.nvim", -- useful lua functions us by lots of plugins
     {
         "rebelot/kanagawa.nvim",
@@ -24,10 +24,10 @@ require('lazy').setup({
         end
     },
     {
-    "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
-    config = function()
-	    require("travis.plugin.autopairs")
-    end
+        "windwp/nvim-autopairs", -- autopairs, integrates with both cmp and treesitter
+        config = function()
+            require("travis.plugin.autopairs")
+        end
     },
 
     {
@@ -35,7 +35,7 @@ require('lazy').setup({
         config = function()
             require('travis.plugin.comment')
         end
-     },
+    },
     'mattn/emmet-vim',
     'andymass/vim-matchup', -- extend % to more objects
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -65,7 +65,7 @@ require('lazy').setup({
     },
 
     'christoomey/vim-sort-motion', -- sort things with motions
-    'godlygeek/tabular', -- line things up
+    'godlygeek/tabular',           -- line things up
     'mustache/vim-mustache-handlebars',
     {
         'code-biscuits/nvim-biscuits',
@@ -83,23 +83,23 @@ require('lazy').setup({
     'kana/vim-textobj-user',
     {
         'kana/vim-textobj-indent',
-        dependencies = {'kana/vim-textobj-user'}
+        dependencies = { 'kana/vim-textobj-user' }
     },
     {
         'kana/vim-textobj-line',
-        dependencies = {'kana/vim-textobj-user'}
+        dependencies = { 'kana/vim-textobj-user' }
     },
     {
         'kana/vim-textobj-entire',
-        dependencies = {'kana/vim-textobj-user'}
+        dependencies = { 'kana/vim-textobj-user' }
     },
     {
         'kana/vim-textobj-function',
-        dependencies = {'kana/vim-textobj-user'}
+        dependencies = { 'kana/vim-textobj-user' }
     },
     {
         'thinca/vim-textobj-function-javascript',
-        dependencies = {'kana/vim-textobj-user'}
+        dependencies = { 'kana/vim-textobj-user' }
     },
 
     'christoomey/vim-tmux-navigator',
@@ -117,13 +117,13 @@ require('lazy').setup({
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-nvim-lua',
-    "saadparwaiz1/cmp_luasnip", -- snippet completions
+    "saadparwaiz1/cmp_luasnip",     -- snippet completions
 
-    "L3MON4D3/LuaSnip", --snippet engine
+    "L3MON4D3/LuaSnip",             --snippet engine
     'rafamadriz/friendly-snippets', -- a bunch of snippets
 
     -- LSP
-      {
+    {
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
@@ -145,7 +145,7 @@ require('lazy').setup({
     -- Telescope
     {
         'nvim-telescope/telescope.nvim',
-        dependencies = {'nvim-lua/plenary.nvim'},
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require('travis.plugin.telescope')
         end
@@ -200,7 +200,7 @@ require('lazy').setup({
             formatters_by_ft = {
                 lua = { "stylua" },
                 python = { "isort", "black" },
-                javascript = { { "prettierd", "prettier", "eslint_d" } },
+                javascript = { { "eslint_d", "eslint", "prettierd", "prettier" } },
             },
             -- Set up format-on-save
             format_on_save = { timeout_ms = 500, lsp_fallback = true },

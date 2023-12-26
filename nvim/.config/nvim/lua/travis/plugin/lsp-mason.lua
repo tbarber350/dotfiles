@@ -47,6 +47,7 @@ end
 -- before setting up the servers.
 require('mason').setup()
 require('mason-lspconfig').setup()
+local util = require('lspconfig.util')
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -61,11 +62,14 @@ local servers = {
     -- gopls = {},
     pyright = {},
     -- rust_analyzer = {},
-    eslint_d = {},
-    volar = {},
+    eslint = {},
+    -- volar = {},
+    vuels = {
+        -- root_dir = util.root_pattern('.eslintrc.json'),
+    },
     jsonls = {},
     tsserver = {},
-    html = { filetypes = { 'html', 'twig', 'hbs'} },
+    html = { filetypes = { 'html', 'twig', 'hbs' } },
     cssls = { filetypes = { 'css', 'scss', 'less', 'sass', 'stylus' } },
     tailwindcss = {},
     bashls = {},
@@ -75,7 +79,7 @@ local servers = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
             -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
+            diagnostics = { disable = { 'missing-fields' } },
         },
     },
 }
@@ -104,4 +108,3 @@ mason_lspconfig.setup_handlers {
         }
     end,
 }
-
