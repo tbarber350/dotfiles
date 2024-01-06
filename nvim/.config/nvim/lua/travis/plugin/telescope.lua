@@ -48,8 +48,8 @@ end
 
 -- Find files using Telescope command-line sugar.
 keymap("n", "<Leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", opts)
-keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files(themes.get_ivy({ hidden = true })) end,
-    opts)
+keymap("n", "<Leader>fu", function() return require('telescope.builtin').git_files(themes.get_ivy()) end, opts)
+keymap("n", "<Leader>fa", function() return require('telescope.builtin').find_files(themes.get_ivy({ hidden = true })) end, opts)
 keymap("n", "<Leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
 keymap("n", "<Leader>fb", "<cmd>Telescope buffers theme=ivy<cr>", opts)
 keymap("n", "<Leader>fh", "<cmd>Telescope help_tags theme=ivy<cr>", opts)
