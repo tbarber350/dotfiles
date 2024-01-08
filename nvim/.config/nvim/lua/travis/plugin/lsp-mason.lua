@@ -63,10 +63,7 @@ local servers = {
     pyright = {},
     -- rust_analyzer = {},
     eslint = {},
-    -- volar = {},
-    vuels = {
-        -- root_dir = util.root_pattern('.eslintrc.json'),
-    },
+    volar = {},
     jsonls = {},
     tsserver = {},
     html = { filetypes = { 'html', 'twig', 'hbs' } },
