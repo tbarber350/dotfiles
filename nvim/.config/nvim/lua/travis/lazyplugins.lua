@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 -- Install your plugins here
+<<<<<<< HEAD
 require('lazy').setup({
     -- My plugins here
     "nvim-lua/popup.nvim",   -- an implementation of the Popup API from vim in Neovim
@@ -217,3 +218,6 @@ require('lazy').setup({
         end,
     }
 })
+=======
+require('lazy').setup('travis.plugins')
+>>>>>>> c2eb715cb52251fcf88e927dda4a19e696f8fdda
