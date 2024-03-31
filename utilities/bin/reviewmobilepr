@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+read -p "PR branch name: " branch
+read -p "work tree PR name: " work_tree
+session_name="PR-$(basename $branch)"
+
+session_path="/Users/us16777/Documents/projects/mobilepr/$work_tree" 
+
+cd ~/Documents/projects/MobileShoppingApp
+
+git fetch origin $branch 
+
+git worktree add ../mobilepr/$branch $branch
+
+tmux new-session -s "$session_name" -c "$session_path" -d 
+tmux switch-client -t $session_name 
+
+

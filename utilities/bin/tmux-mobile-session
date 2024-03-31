@@ -4,7 +4,7 @@ read -p "branch name: " branch_name
 read -p "bug (b) or feature (f): " kind
 session_name=$(basename "$branch_name" | tr . _)
 
-cd /Users/us16777/Documents/projects/DEP-Phase1
+cd /Users/us16777/Documents/projects/MobileShoppingApp
 
 if [[ $kind == "b" ]] 
 then
@@ -13,20 +13,15 @@ else
     kind="features"
 fi
 
-git worktree add -b $branch_name ../$kind/tb/$session_name
+git worktree add -b $branch_name ../$kind/mobile/$session_name
 
-working_directory="/Users/us16777/Documents/projects/$kind/tb/$session_name/fe-library"
+working_directory="/Users/us16777/Documents/projects/$kind/mobile/$session_name"
 
 if ! tmux has-session -t "$session_name" 2> /dev/null; then
     tmux new-session -s "$session_name" -c "$working_directory" -d 
     tmux switch-client -t $session_name 
-    tmux send-keys -t $session_name "fnm use v18.19.0" ENTER
     tmux send-keys -t $session_name "nvim" ENTER
     tmux split-window -v -p 30 -t $session_name -c "$working_directory"
-    tmux send-keys -t $session_name "fnm use v14.21.3" ENTER
-    tmux send-keys -t $session_name "npm install" ENTER
-    tmux split-window -h -t $session_name -c "$working_directory"
-    tmux send-keys -t $session_name "fnm use v14.21.3" ENTER
 else
     tmux switch-client -t "$session_name"
 fi

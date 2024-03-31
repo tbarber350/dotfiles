@@ -69,7 +69,7 @@ local servers = {
     },
     jsonls = {},
     tsserver = {},
-    html = { filetypes = { 'html', 'twig', 'hbs' } },
+    html = { filetypes = { 'html', 'twig' } },
     cssls = { filetypes = { 'css', 'scss', 'less', 'sass', 'stylus' } },
     tailwindcss = {},
     bashls = {},
