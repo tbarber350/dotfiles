@@ -12,4 +12,31 @@ return {
 	{
 		"mbbill/undotree",
 	},
+	{
+		"editorconfig/editorconfig-vim",
+	},
+	-- text objects
+	{
+		"kana/vim-textobj-user",
+	},
+	{
+		"kana/vim-textobj-indent",
+		dependencies = { "kana/vim-textobj-user" },
+	},
+	{
+		"kana/vim-textobj-line",
+		dependencies = { "kana/vim-textobj-user" },
+	},
+	{
+		"kana/vim-textobj-entire",
+		dependencies = { "kana/vim-textobj-user" },
+	},
+	{
+		"kana/vim-textobj-function",
+		dependencies = { "kana/vim-textobj-user" },
+	},
+	{
+		"thinca/vim-textobj-function-javascript",
+		dependencies = { "kana/vim-textobj-user" },
+	},
 }

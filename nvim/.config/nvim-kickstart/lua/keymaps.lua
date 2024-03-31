@@ -94,6 +94,9 @@ vim.keymap.set("n", "<Leader>vs", ":mks! ~/vim-session/session.vim<cr>", { desc 
 -- load session
 vim.keymap.set("n", "<Leader>vl", ":source ~/vim-session/session.vim<cr>", { desc = "load vim session" })
 
+-- make current file executable
+vim.keymap.set("n", "<Leader>x", ":!chmod +x %<CR>", { desc = "make the current file executable" })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

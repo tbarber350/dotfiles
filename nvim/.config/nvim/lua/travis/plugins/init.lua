@@ -41,8 +41,6 @@ return {
     {
         'tpope/vim-fugitive',
     },
-
-
     {
         'christoomey/vim-sort-motion', -- sort things with motions
     },

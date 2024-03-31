@@ -83,4 +83,4 @@ alias python='python3'
 alias copyrb='cat vendor.js brands-prod.js index.js > bundle.js && mv bundle.js ../../../riverbend/public/js/.'
 
 # different nvim aliases
-alias nvim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
+alias nvim-k='NVIM_APPNAME="nvim-kickstart" nvim'
