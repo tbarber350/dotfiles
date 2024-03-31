@@ -125,6 +125,33 @@ return {
         builtin.current_buffer_fuzzy_find()
       end , { desc = "[S]earch [C]urrent buffer" })
 
+      -- find the PascalCase version of the kebob-case word under the cursor
+      -- useful for vue files at work
+      vim.keymap.set("n", "<Leader>sp", function()
+          local current_word = vim.fn.expand("<cword>")
+          -- change current_word from kebab-case to pascale case
+          current_word = current_word:gsub('-(%a)', function(first)
+              return first:upper()
+          end):gsub('^%a', function(first) return first:upper() end)
+          local opts = {
+              search = current_word,
+          }
+          require('telescope.builtin').grep_string(opts)
+      end, { desc = "[S]earch for the [P]ascalCase version of the kebob-case word under the cursor" })
+
+      vim.keymap.set("n", "<Leader>si", function()
+          local current_word = vim.fn.expand("<cword>")
+          -- change current_word from kebab-case to pascale case
+          current_word = current_word:gsub('^(%a)', function(first)
+              return '<' .. first:lower()
+          end):gsub('%u', function(first) return '-' .. first:lower() end)
+          local opts = {
+              search = current_word,
+          }
+          require('telescope.builtin').grep_string(opts)
+      end, { desc = "[S]earch for the [I]mplementation of the kebob case element from the PascalCase name" })
+ 
+
 		end,
 	},
 }
