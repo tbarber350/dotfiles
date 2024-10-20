@@ -50,6 +50,10 @@ vim.keymap.set("n", "<Leader>nv", vim.cmd.Vex, { desc = "open netrw in split hor
 vim.keymap.set("n", "<Leader>ns", vim.cmd.Sex, { desc = "open netrw in split vertical window" })
 vim.keymap.set("n", "<Leader>ne", vim.cmd.Ex, { desc = "open netrw in window" })
 
+-- mini.files
+vim.keymap.set("n", "<Leader>nf", function()
+  return require("mini.files").open()
+end, { desc = "open mini.files" })
 -- fugitive bindings
 vim.keymap.set("n", "<Leader>gs", vim.cmd.G, { desc = "git status" })
 vim.keymap.set("n", "<Leader>gg", ":diffget //2<cr>", { desc = "diffget from buffer 2" })

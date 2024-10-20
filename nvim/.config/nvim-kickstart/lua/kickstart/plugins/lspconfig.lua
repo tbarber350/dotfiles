@@ -150,7 +150,7 @@ return {
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				tsserver = {},
-				eslint_d = {},
+				eslint = {},
 				html = { filetypes = { "html", "twig", "hbs" } },
 				cssls = { filetypes = { "css", "scss", "less", "sass", "stylus" } },
 				tailwindcss = {},
