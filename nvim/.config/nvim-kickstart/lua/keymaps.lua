@@ -97,6 +97,20 @@ vim.keymap.set("n", "<Leader>vl", ":source ~/vim-session/session.vim<cr>", { des
 -- make current file executable
 vim.keymap.set("n", "<Leader>x", ":!chmod +x %<CR>", { desc = "make the current file executable" })
 
+
+-- create scratch buffer
+_ = vim.cmd [[
+    function! Scratch()
+        split
+        noswapfile hide enew
+        setlocal buftype=nofile
+        setlocal bufhidden=hide
+        "setlocal nobuflisted
+        "lcd ~
+        file scratch
+    endfunction
+]]
+vim.keymap.set("n", "<Leader>cs", ":call Scratch()<CR>", { desc = "create a scratch buffer" })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 

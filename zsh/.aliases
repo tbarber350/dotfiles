@@ -64,8 +64,8 @@ alias gwrf='git worktree remove "$(git worktree list | fzf | grep -Eo "^[^ ]+")"
 alias gdb='git branch -d "$(git branch | fzf | tr -d "+ ")"'
 alias gDb='git branch -D "$(git branch | fzf | tr -d "+ ")"'
 
-# see local development servers running for patternlab
-alias showservers="ps -ef | grep '\-\-env.development'"
+# see local development servers running 
+alias showservers="lsof -Pi | grep LISTEN"
 
 # tmux aliases
 alias tks='tmux kill-session -t "$(tmux ls | fzf | grep -Eo "^[^: ]+")"'
@@ -84,3 +84,21 @@ alias copyrb='cat vendor.js brands-prod.js index.js > bundle.js && mv bundle.js 
 
 # different nvim aliases
 alias nvim-k='NVIM_APPNAME="nvim-kickstart" nvim'
+
+# clear out mobile packages and reinstall
+alias reinstallpackages='rm -rf node_modules/ && rm -rf yarn.lock && yarn install && cd ios && rm -rf Pods/ Podfile.lock && pod install && cd ..'
+
+# update package.json for iOS
+alias updateMediaPlayeriOS='sed -i "" "s/\"react-native-jw-media-player\": \"\([^\"]*\)\"/\"react-native-jw-media-player\": \"0.2.37\"/g" package.json'
+alias updateMarketingCloudiOS='sed -i "" "s/\"react-native-marketingcloudsdk\": \"\([^\"]*\)\"/\"react-native-marketingcloudsdk\": \"8.1.0\"/g" package.json'
+
+# update package.json for Android
+alias updateMediaPlayerAndroid='sed -i "" "s/\"react-native-jw-media-player\": \"\([^\"]*\)\"/\"react-native-jw-media-player\": \"0.2.45\"/g" package.json'
+alias updateMarketingCloudAndroid='sed -i "" "s/\"react-native-marketingcloudsdk\": \"\([^\"]*\)\"/\"react-native-marketingcloudsdk\": \"8.0.0\"/g" package.json'
+
+alias updateJSONiOS='updateMediaPlayeriOS && updateMarketingCloudiOS'
+alias updateJSONAndroid='updateMediaPlayerAndroid && updateMarketingCloudAndroid'
+
+alias updateiOS='updateJSONiOS && reinstallpackages'
+alias updateAndroid='updateJSONAndroid && reinstallpackages'
+
