@@ -39,6 +39,7 @@ vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Increase window size
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Increase window size left" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window size right" })
 
+vim.keymap.set("n", "<C-w>m", ":wincmd | | wincmd _<CR>", { desc = "Maximize the current window" })
 -- copy file to the system clipboard
 vim.keymap.set("n", "<F6>", ":%w !pbcopy <CR><CR>", { desc = "copy the file to the system clipboard" })
 
