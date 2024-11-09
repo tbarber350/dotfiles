@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+tmux new-session -s notes -c ~/Documents/notes/daily-activity-report -d
+tmux send-keys -t notes "nvim-k DailyActivityReport" Enter
+
+tmux new-session -s master -c ~/Documents/projects/DEP-Phase1/fe-library -d
+tmux send-keys -t master "nvim-k" Enter
+tmux split-window -v -l 33% -c ~/Documents/projects/DEP-Phase1/fe-library
+tmux send-keys -t master "fnm use v16.20.2" Enter
+
+tmux new-session -s develop -c ~/Documents/projects/MobileShoppingApp -d
+tmux send-keys -t develop "nvim-k" Enter
+tmux split-window -v -l 33% -c ~/Documents/projects/MobileShoppingApp
+tmux send-keys -t develop "fnm use v18.19.0" Enter
+
+tmux new-session -s dotfiles -c ~/dotfiles -d
+
+tmux attach-session -t notes
