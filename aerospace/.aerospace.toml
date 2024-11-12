@@ -204,3 +204,24 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+# place programs in preferred workspaces
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 2']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 2']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 1']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 4']  # The callback itself
