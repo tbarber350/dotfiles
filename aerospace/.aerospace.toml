@@ -226,3 +226,13 @@ run = ['layout tiling', 'move-node-to-workspace 1']  # The callback itself
 if.app-id = 'md.obsidian'
 if.during-aerospace-startup = true
 run = ['layout tiling', 'move-node-to-workspace 4']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 3']  # The callback itself
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Outlook'
+if.during-aerospace-startup = true
+run = ['layout tiling', 'move-node-to-workspace 3']  # The callback itself
