@@ -217,6 +217,8 @@ alt-shift-ctrl-cmd-z = ['move-node-to-workspace Z', 'workspace Z']
 
 alt-f = 'fullscreen'
 
+alt-shift-ctrl-f = ['mode service', 'layout floating tiling', 'mode main', 'mode service', 'layout floating tiling', 'mode main']
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
