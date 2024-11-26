@@ -15,6 +15,12 @@ return {
 	{
 		"editorconfig/editorconfig-vim",
 	},
+	{
+		"folke/ts-comments.nvim",
+		opts = {},
+		event = "VeryLazy",
+		enabled = vim.fn.has("nvim-0.10.0") == 1,
+	},
 	-- text objects
 	{
 		"kana/vim-textobj-user",
