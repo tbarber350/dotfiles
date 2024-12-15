@@ -102,7 +102,6 @@ export PATH="/usr/local/Cellar/purescript/0.10.5/bin:$PATH"
 if [ -e /Users/us16777/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/us16777/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 # set -o vi
 
-eval $(thefuck --alias)
 
 export PATH=$PATH:$HOME/bin
 
@@ -110,9 +109,11 @@ alias luamake=/Users/us16777/lua-language-server/3rd/luamake/luamake
 
 bindkey -s ^f "tmux-sessionizer\n"
 
-eval "$(fnm env)"
 
 export PATH=/opt/homebrew/bin:$PATH
+
+eval $(thefuck --alias)
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # environment variables for react-native tools
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -127,3 +128,4 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
