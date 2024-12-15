@@ -3,6 +3,7 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
+  "codecompanion.nvim": { "branch": "main", "commit": "e8d52e91bb6015e5e51a9407d390292359e1b047" },
   "conform.nvim": { "branch": "master", "commit": "ed919d3f1d824a7713d182560bc7e2e27c0f349b" },
   "copilot.vim": { "branch": "release", "commit": "87038123804796ca7af20d1b71c3428d858a9124" },
   "editorconfig-vim": { "branch": "master", "commit": "3c2813f2566d9392ff3614248c5db43c3fda9d5f" },
