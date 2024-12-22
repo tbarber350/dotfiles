@@ -21,6 +21,11 @@ return {
 		event = "VeryLazy",
 		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 	-- text objects
 	{
 		"kana/vim-textobj-user",

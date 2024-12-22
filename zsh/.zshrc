@@ -109,6 +109,8 @@ alias luamake=/Users/us16777/lua-language-server/3rd/luamake/luamake
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+# neovim is the default editor
+export EDITOR='nvim'
 
 export PATH=/opt/homebrew/bin:$PATH
 
