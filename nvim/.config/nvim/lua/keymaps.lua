@@ -71,6 +71,7 @@ vim.keymap.set("n", "<Leader>gw", vim.cmd.Gwrite, { desc = "Gwrite" })
 vim.keymap.set("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", { desc = "go to next hunk" })
 vim.keymap.set("n", "<Leader>gp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "got to previous hunk" })
 vim.keymap.set("n", "<Leader>gz", "<cmd>Gitsigns preview_hunk<CR>", { desc = "preview hunk" })
+vim.keymap.set("n", "<Leader>gr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "reset hunk" })
 vim.keymap.set("n", "<Leader>gl", "<cmd>Gitsigns blame_line<CR>", { desc = "git blame line" })
 
 -- harpoon navigation
@@ -108,9 +109,8 @@ vim.keymap.set("n", "<Leader>vl", ":source ~/vim-session/session.vim<cr>", { des
 -- make current file executable
 vim.keymap.set("n", "<Leader>x", ":!chmod +x %<CR>", { desc = "make the current file executable" })
 
-
 -- create scratch buffer
-_ = vim.cmd [[
+_ = vim.cmd([[
     function! Scratch()
         split
         noswapfile hide enew
@@ -120,7 +120,7 @@ _ = vim.cmd [[
         "lcd ~
         file scratch
     endfunction
-]]
+]])
 vim.keymap.set("n", "<Leader>cs", ":call Scratch()<CR>", { desc = "create a scratch buffer" })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -135,5 +135,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- move cursor to end of the line
+vim.keymap.set("i", "<C-e>", "<esc><S-a>", { desc = "move cursor to end of the line" })
 
 -- vim: ts=2 sts=2 sw=2 et
