@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
@@ -131,3 +131,8 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# ruby 
+eval "$(rbenv init -)"
+
+# Added by Windsurf
+export PATH="/Users/us16777/.codeium/windsurf/bin:$PATH"
