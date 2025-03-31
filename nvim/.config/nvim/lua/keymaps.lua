@@ -53,14 +53,14 @@ vim.keymap.set("n", "<Leader>ne", vim.cmd.Ex, { desc = "open netrw in window" })
 
 -- mini.files
 vim.keymap.set("n", "<Leader>nf", function()
-  return require("mini.files").open()
+	return require("mini.files").open()
 end, { desc = "open mini.files" })
 vim.keymap.set("n", "-", function()
-      local buf_name = vim.api.nvim_buf_get_name(0)
-      local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
-      MiniFiles.open(path)
-      MiniFiles.reveal_cwd()
-    end, { desc = "Open Mini Files" })
+	local buf_name = vim.api.nvim_buf_get_name(0)
+	local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
+	MiniFiles.open(path)
+	MiniFiles.reveal_cwd()
+end, { desc = "Open Mini Files" })
 -- fugitive bindings
 vim.keymap.set("n", "<Leader>gs", vim.cmd.G, { desc = "git status" })
 vim.keymap.set("n", "<Leader>gg", ":diffget //2<cr>", { desc = "diffget from buffer 2" })
@@ -138,5 +138,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- move cursor to end of the line
 vim.keymap.set("i", "<C-e>", "<esc><S-a>", { desc = "move cursor to end of the line" })
+
+-- Move text up and down
+vim.keymap.set("v", "<C-J>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv")
 
 -- vim: ts=2 sts=2 sw=2 et
