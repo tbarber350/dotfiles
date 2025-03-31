@@ -66,6 +66,8 @@ vim.keymap.set("n", "<Leader>gs", vim.cmd.G, { desc = "git status" })
 vim.keymap.set("n", "<Leader>gg", ":diffget //2<cr>", { desc = "diffget from buffer 2" })
 vim.keymap.set("n", "<Leader>gh", ":diffget //3<cr>", { desc = "diffget from buffer 3" })
 vim.keymap.set("n", "<Leader>gw", vim.cmd.Gwrite, { desc = "Gwrite" })
+vim.keymap.set("n", "<Leader>gd", ":Gdiffsplit<cr>", { desc = "[g]it [d]iff current file" })
+vim.keymap.set("n", "<Leader>gb", ":G blame<cr>", { desc = "[g]it [b]lame" })
 
 -- gitsigns navigation
 vim.keymap.set("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", { desc = "go to next hunk" })
