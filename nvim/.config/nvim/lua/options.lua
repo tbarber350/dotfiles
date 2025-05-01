@@ -65,7 +65,10 @@ vim.shiftwidth = 2
 vim.tabstop = 2
 vim.expandtab = true
 
-_ = vim.cmd [[
+-- use global statusline
+vim.opt.laststatus = 3
+
+_ = vim.cmd([[
     " treat dashed words as whole words
     set iskeyword+=-
     filetype indent on
@@ -78,6 +81,6 @@ _ = vim.cmd [[
     au BufRead,BufNewFile *.ejs, *.hbs setfiletype html
     " complete dashed words
     autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
-]]
+]])
 
 -- vim: ts=2 sts=2 sw=2 et
