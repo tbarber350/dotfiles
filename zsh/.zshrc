@@ -117,11 +117,6 @@ export PATH=/opt/homebrew/bin:$PATH
 eval $(thefuck --alias)
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# environment variables for react-native tools
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 # setup zoxide
 eval "$(zoxide init zsh)"
 
