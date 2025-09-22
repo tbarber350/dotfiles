@@ -68,6 +68,7 @@ vim.keymap.set("n", "<Leader>gh", ":diffget //3<cr>", { desc = "diffget from buf
 vim.keymap.set("n", "<Leader>gw", vim.cmd.Gwrite, { desc = "Gwrite" })
 vim.keymap.set("n", "<Leader>gd", ":Gdiffsplit<cr>", { desc = "[g]it [d]iff current file" })
 vim.keymap.set("n", "<Leader>gb", ":G blame<cr>", { desc = "[g]it [b]lame" })
+vim.keymap.set("n", "<Leader>gB", ":G blame %<cr>", { desc = "[g]it [B]lame in new split" })
 
 -- gitsigns navigation
 vim.keymap.set("n", "<Leader>gn", "<cmd>Gitsigns next_hunk<CR>", { desc = "go to next hunk" })
