@@ -1,0 +1,10 @@
+#!/bin/bash
+
+read -p "Enter commit hash: " COMMIT_HASH
+
+git log "$COMMIT_HASH"..HEAD |
+  rg -o '#[0-9]+' |
+  sed 's/#//' |
+  sort -n | uniq |
+  paste -sd, - |
+  pbcopy

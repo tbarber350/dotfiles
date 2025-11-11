@@ -10,6 +10,9 @@ return {
 		"tpope/vim-unimpaired",
 	},
 	{
+		"tpope/vim-surround",
+	},
+	{
 		"mbbill/undotree",
 	},
 	{

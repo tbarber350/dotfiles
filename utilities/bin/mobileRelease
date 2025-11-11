@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+read -p "release branch" branch
+work_tree = $(basename "$branch_name" | tr . _)
+
+session_name=$branch
+
+session_path="/Users/us16777/Documents/projects/release/$work_tree" 
+
+cd ~/Documents/projects/MobileShoppingApp
+
+git fetch origin $branch 
+
+git worktree add ../release/$branch $branch
+
+tmux new-session -s "$session_name" -c "$session_path" -d 
+tmux switch-client -t $session_name 
+
+
+

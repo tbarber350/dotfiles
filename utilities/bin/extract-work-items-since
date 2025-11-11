@@ -1,0 +1,10 @@
+#!/bin/bash
+
+read -p "Enter date: " DATE_ENTERED
+
+git log --since="$DATE_ENTERED" |
+  rg -o '#[0-9]+' |
+  sed 's/#//' |
+  sort -n | uniq |
+  paste -sd, - |
+  pbcopy
