@@ -139,3 +139,6 @@ export PATH="/Users/us16777/.codeium/windsurf/bin:$PATH"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# flutter
+export PATH=$HOME/development/flutter/bin:$PATH
