@@ -275,3 +275,8 @@ run = ['layout tiling', 'move-node-to-workspace 3']  # The callback itself
 if.app-id = 'com.microsoft.Outlook'
 if.during-aerospace-startup = true
 run = ['layout tiling', 'move-node-to-workspace 3']  # The callback itself
+
+[[on-window-detected]]
+if.app-name-regex-substring = "glslViewer"
+run = "layout floating"
+

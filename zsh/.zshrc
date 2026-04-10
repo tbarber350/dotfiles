@@ -135,6 +135,9 @@ export PATH="/Users/us16777/.codeium/windsurf/bin:$PATH"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
+# flutter
+export PATH=$HOME/development/flutter/bin:$PATH
+
 # yazi wrapper function to change to directory when exiting with q
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
