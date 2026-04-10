@@ -166,7 +166,6 @@ require_aerospace
 
 # Find target windows from the global window list. `--all` can't be combined with filtering
 # flags in current AeroSpace versions, so we query once and filter locally.
-# DEBUGGER_ID="$(first_window_by_bundle_and_title 'com.google.Chrome' 'React Native')"
 DEBUGGER_ID=$(aerospace list-windows --all  | grep 'React Native' | head -n 1 | cut -d'|' -f1 | xargs)
 # Locate the iOS Simulator ID
 SIM_ID=$(aerospace list-windows --all  | grep 'Simulator' | head -n 1 | cut -d'|' -f1 | xargs)
@@ -204,5 +203,3 @@ aerospace move --window-id "$SIM_ID" right
 aerospace join-with --window-id "$SIM_ID" right
 aerospace move --window-id "$DEBUGGER_ID" right
 aerospace resize --window-id "$TERM_ID" smart +1100
-
-# aerospace balance-sizes --workspace "$TARGET_WS" >/dev/null 2>&1

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# reset workspace for React Native Development
+set -u
+
+TARGET_WS="${1:-1}"
+
+DEBUGGER_ID=$(aerospace list-windows --all  | grep 'React Native' | head -n 1 | cut -d'|' -f1 | xargs)
+# Locate the iOS Simulator ID
+SIM_ID=$(aerospace list-windows --all  | grep 'Simulator' | head -n 1 | cut -d'|' -f1 | xargs)
+# Locate the Android Emulator ID
+EMU_ID=$(aerospace list-windows --all  | grep 'Running Devices' | head -n 1 | cut -d'|' -f1 | xargs)
+TERM_ID=$(aerospace list-windows --all  | grep 'Alacritty' | head -n 1 | cut -d'|' -f1 | xargs)
+
+aerospace workspace --fail-if-noop "$TARGET_WS" >/dev/null 2>&1 || true
+
+for id in "$DEBUGGER_ID" "$SIM_ID" "$EMU_ID" "$TERM_ID"; do
+    if [ -n "$id" ]; then
+        aerospace move-node-to-workspace "$TARGET_WS" --window-id "$id" >/dev/null 2>&1
+    fi
+done
+
+if [ -n "$DEBUGGER_ID" ]; then
+  echo $DEBUGGER_ID
+  aerospace close --window-id "$DEBUGGER_ID"
+fi
+
+aerospace flatten-workspace-tree --workspace "$TARGET_WS" >/dev/null 2>&1
+aerospace layout v_accordion 
+
+if [ -n "$EMU_ID" ]; then
+  aerospace move --window-id "$EMU_ID" right
+fi
+
+if [ -n "$SIM_ID" ]; then
+  aerospace move --window-id "$SIM_ID" right
+fi
+
+if [ -n "$EMU_ID" ]; then
+  aerospace join-with --window-id "$SIM_ID" right
+fi
+
+aerospace resize --window-id "$TERM_ID" smart +1200
