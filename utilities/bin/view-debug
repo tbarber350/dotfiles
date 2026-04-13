@@ -190,11 +190,6 @@ for id in "$DEBUGGER_ID" "$SIM_ID" "$EMU_ID" "$TERM_ID"; do
     fi
 done
 
-echo $EMU_ID
-echo $SIM_ID
-echo $DEBUGGER_ID
-echo $TERM_ID
-
 aerospace flatten-workspace-tree --workspace "$TARGET_WS" >/dev/null 2>&1
 aerospace layout v_accordion 
 
@@ -202,4 +197,4 @@ aerospace move --window-id "$EMU_ID" right
 aerospace move --window-id "$SIM_ID" right
 aerospace join-with --window-id "$SIM_ID" right
 aerospace move --window-id "$DEBUGGER_ID" right
-aerospace resize --window-id "$TERM_ID" smart +1100
+aerospace resize --window-id "$TERM_ID" smart +1300

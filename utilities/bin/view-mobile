@@ -20,11 +20,11 @@ for id in "$DEBUGGER_ID" "$SIM_ID" "$EMU_ID" "$TERM_ID"; do
     fi
 done
 
-if [ -n "$DEBUGGER_ID" ]; then
-  echo $DEBUGGER_ID
-  aerospace close --window-id "$DEBUGGER_ID"
-fi
-
+# if [ -n "$DEBUGGER_ID" ]; then
+#   echo $DEBUGGER_ID
+#   aerospace close --window-id "$DEBUGGER_ID"
+# fi
+#
 aerospace flatten-workspace-tree --workspace "$TARGET_WS" >/dev/null 2>&1
 aerospace layout v_accordion 
 
