@@ -146,3 +146,6 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# add ADO personal access token to environment variable
+export AZDO_PAT="$(security find-generic-password -a "$USER" -s AZDO_PAT -w 2>/dev/null)"

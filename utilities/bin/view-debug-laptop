@@ -1,0 +1,201 @@
+#!/bin/bash
+
+set -u
+
+TARGET_WS="${1:-1}"
+
+require_aerospace() {
+    aerospace list-windows --all --count >/dev/null 2>&1 || {
+        echo "AeroSpace is not running or not reachable from this shell." >&2
+        exit 1
+    }
+}
+
+list_all_windows() {
+    aerospace list-windows --all --format '%{window-id}\t%{app-bundle-id}\t%{window-title}\t%{workspace}'
+}
+
+focused_window_id() {
+    aerospace list-windows --focused --format '%{window-id}' 2>/dev/null
+}
+
+first_window_id_in_workspace() {
+    aerospace list-windows --workspace "$TARGET_WS" --format '%{window-id}' | head -n 1
+}
+
+first_window_by_bundle() {
+    local bundle_id="$1"
+
+    list_all_windows | awk -F '\t' -v bundle_id="$bundle_id" '$2 == bundle_id { print $1; exit }'
+}
+
+first_window_by_bundle_and_title() {
+    local bundle_id="$1"
+    local title_pattern="$2"
+
+    list_all_windows | awk -F '\t' -v bundle_id="$bundle_id" -v title_pattern="$title_pattern" '
+        $2 == bundle_id && $3 ~ title_pattern {
+            print $1
+            exit
+        }
+    '
+}
+
+contains_id() {
+    local needle="$1"
+    shift
+
+    local value
+    for value in "$@"; do
+        [ "$value" = "$needle" ] && return 0
+    done
+
+    return 1
+}
+
+is_special_id() {
+    local id="$1"
+
+    contains_id "$id" "$DEBUGGER_ID" "$SIM_ID" "$EMU_ID"
+}
+
+focus_window() {
+    local id="$1"
+
+    [ -n "$id" ] || return 1
+    aerospace focus --window-id "$id" >/dev/null 2>&1
+}
+
+neighbor_id() {
+    local id="$1"
+    local direction="$2"
+    local previous_focus
+    local neighbor
+
+    previous_focus="$(focused_window_id || true)"
+    focus_window "$id" || return 1
+    aerospace focus "$direction" >/dev/null 2>&1 || {
+        [ -n "$previous_focus" ] && focus_window "$previous_focus" || true
+        return 1
+    }
+    neighbor="$(focused_window_id || true)"
+    [ -n "$previous_focus" ] && focus_window "$previous_focus" || true
+
+    [ -n "$neighbor" ] || return 1
+    printf '%s\n' "$neighbor"
+}
+
+bring_to_edge() {
+    local id="$1"
+    local direction="$2"
+
+    [ -n "$id" ] || return 0
+
+    while aerospace swap --window-id "$id" "$direction" >/dev/null 2>&1; do
+        :
+    done
+}
+
+place_immediately_left_of() {
+    local id="$1"
+    local target_id="$2"
+    local guard=0
+    local next_id
+
+    [ -n "$id" ] || return 0
+    [ -n "$target_id" ] || return 0
+
+    while true; do
+        next_id="$(neighbor_id "$id" right || true)"
+        [ "$next_id" = "$target_id" ] && return 0
+
+        aerospace swap --window-id "$id" right >/dev/null 2>&1 || return 1
+
+        guard=$((guard + 1))
+        [ "$guard" -lt 100 ] || return 1
+    done
+}
+
+stack_terminal_with_other_windows() {
+    local next_id
+    local guard=0
+
+    [ -n "$TERM_ID" ] || return 0
+    bring_to_edge "$TERM_ID" left
+
+    next_id="$(neighbor_id "$TERM_ID" right || true)"
+    [ -n "$next_id" ] || return 0
+    is_special_id "$next_id" && return 0
+
+    focus_window "$TERM_ID" || return 1
+    aerospace join-with right >/dev/null 2>&1 || return 1
+    aerospace layout v_tiles >/dev/null 2>&1 || return 1
+
+    while true; do
+        next_id="$(neighbor_id "$TERM_ID" right || true)"
+        [ -n "$next_id" ] || return 0
+        is_special_id "$next_id" && return 0
+
+        focus_window "$next_id" || return 1
+        aerospace move left >/dev/null 2>&1 || return 1
+
+        guard=$((guard + 1))
+        [ "$guard" -lt 100 ] || return 1
+    done
+}
+
+stack_mobile_windows() {
+    [ -n "$SIM_ID" ] || return 0
+    [ -n "$EMU_ID" ] || return 0
+
+    focus_window "$SIM_ID" || return 1
+    aerospace join-with right >/dev/null 2>&1
+}
+
+set_workspace_horizontal() {
+    local anchor_id
+
+    anchor_id="$(first_window_id_in_workspace)"
+    [ -n "$anchor_id" ] || return 0
+
+    focus_window "$anchor_id" || return 1
+    aerospace layout h_tiles >/dev/null 2>&1
+}
+
+require_aerospace
+
+# Find target windows from the global window list. `--all` can't be combined with filtering
+# flags in current AeroSpace versions, so we query once and filter locally.
+DEBUGGER_ID=$(aerospace list-windows --all  | grep 'React Native' | head -n 1 | cut -d'|' -f1 | xargs)
+# Locate the iOS Simulator ID
+SIM_ID=$(aerospace list-windows --all  | grep 'Simulator' | head -n 1 | cut -d'|' -f1 | xargs)
+# Locate the Android Emulator ID
+EMU_ID=$(aerospace list-windows --all  | grep 'Running Devices' | head -n 1 | cut -d'|' -f1 | xargs)
+TERM_ID=$(aerospace list-windows --all  | grep 'Alacritty' | head -n 1 | cut -d'|' -f1 | xargs)
+
+# if [ -z "$TERM_ID" ]; then
+#     TERM_ID="$(first_window_by_bundle 'com.googlecode.iterm2')"
+# fi
+#
+# if [ -z "$TERM_ID" ]; then
+#     TERM_ID="$(first_window_by_bundle 'com.apple.Terminal')"
+# fi
+
+# Focus the target workspace without surfacing the no-op message when it is already focused.
+aerospace workspace --fail-if-noop "$TARGET_WS" >/dev/null 2>&1 || true
+
+for id in "$DEBUGGER_ID" "$SIM_ID" "$EMU_ID" "$TERM_ID"; do
+    if [ -n "$id" ]; then
+        aerospace move-node-to-workspace "$TARGET_WS" --window-id "$id" >/dev/null 2>&1
+    fi
+done
+
+aerospace flatten-workspace-tree --workspace "$TARGET_WS" >/dev/null 2>&1
+aerospace layout v_accordion 
+
+aerospace move --window-id "$EMU_ID" right
+aerospace move --window-id "$SIM_ID" right
+aerospace join-with --window-id "$SIM_ID" right
+aerospace move --window-id "$DEBUGGER_ID" right
+aerospace resize --window-id "$TERM_ID" smart +600
+
